@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+	#dashboard {
+	  width: 97vw;
+	  height: 95vh;
+	  position: absolute;
+	  padding-top: 1vh;
+	  padding-left: 1vw;
+	  padding-right: 1vw;
+	  padding-bottom: 1vh;
+	  display: inline-block;
+	  background-color: #DEDEDE;
+	}
+	#header {
+	  text-align: center;
+	  width: 97vw;
+	  height: 10vh;
+	  left: 1vw;
+	  position: absolute;
+	  display: inline-block;
+	  border-style: solid;
+	  border-width: 1px;
+	  background-color: #ECECEC;
+	}
+	#back {
+	  position: absolute;
+	  display: inline-block;
+	}
+	#comments {
+	  width: 65vw;
+	  height: 81vh;
+	  left: 2vw;
+	  bottom: 3vh;
+	  position: fixed;
+	  display: show;
+	  background-color: #FFFFEC;
+	  border-style: solid;
+	  border-width: 1px;
+	  padding-left: 1vw; 
+	  padding-right: 1vw;
+	  overflow: auto;
+	}
+	#teacher {
+	  width: 25vw;
+	  height: 25vh;
+	  right: 2vw;
+	  bottom: 59vh;
+	  position: fixed;
+	  font-size: 20px;
+	  display: show;
+	  background-color: #FFFFEC;
+	  border-style: solid;
+	  border-width: 1px;
+	  padding-left: 1vw; 
+	  padding-right: 1vw;
+	  overflow: auto;
+	}
+	#area {
+	  width: 25vw;
+	  height: 25vh;
+	  right: 2vw;
+	  bottom: 31vh;
+	  position: fixed;
+	  font-size: 20px;
+	  display: show;
+	  background-color: #FFFFEC;
+	  border-style: solid;
+	  border-width: 1px;
+	  padding-left: 1vw; 
+	  padding-right: 1vw;
+	  overflow: auto;
+	}
+	#grade {
+	  width: 25vw;
+	  height: 25vh;
+	  right: 2vw;
+	  bottom: 3vh;
+	  position: fixed;
+	  font-size: 20px;
+	  display: show;
+	  background-color: #FFFFEC;
+	  border-style: solid;
+	  border-width: 1px;
+	  padding-left: 1vw; 
+	  padding-right: 1vw;
+	  overflow: auto;
+	}
+	.header {
+		text-align: center;
+		font-size: 20px;
+	}
+	</style>
+
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<script>	
+	</script>
+</head>
+
+<body>
+	<div id = "dashboard">
+		<div id = "header">
+		JOHN DOE <br />
+		Teacher Comments <br />
+		<select>
+		  <option value="three">Grade 3</option>
+		  <option value="two">Grade 2</option>
+		  <option value="one">Grade 1</option>
+		</select>
+		</div>
+		<div id = "back">
+			<button type="button"  onclick="location.href=''">Back</button>
+		</div>
+		<div id = "comments">
+			<p class="header">Teacher Comments</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus leo ante, et sollicitudin nulla eleifend nec. Vivamus eu convallis enim. Praesent eros sapien, fermentum in mollis et, maximus quis metus. Ut libero purus, semper id massa vitae, imperdiet bibendum nisi. Fusce a justo at quam posuere euismod ac non tellus. In hac habitasse platea dictumst. Nullam sollicitudin enim nunc, a placerat nisi blandit vestibulum. Pellentesque pretium quam malesuada quam feugiat pretium. Praesent placerat purus quis ipsum elementum, at hendrerit neque rutrum. Aenean purus lorem, bibendum sed feugiat vitae, aliquet vel mauris. Curabitur nec nulla ac mi sagittis suscipit quis non urna.</p>
+
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus gravida euismod tellus, maximus efficitur turpis tempus vel. Ut fringilla odio et lectus cursus viverra. Ut volutpat tempus turpis, sed aliquam dolor vulputate sit amet. Nam auctor neque vitae risus venenatis commodo. Etiam lacinia turpis tincidunt semper sodales. Pellentesque quis sollicitudin massa. Proin tincidunt elit nisl, sed congue nibh convallis id. Fusce vitae mauris vel arcu accumsan gravida. Pellentesque at ultricies ante.</p>
+
+			<p>Donec vitae tempus lectus. Donec semper tempor turpis non tincidunt. In sed libero eu diam euismod vulputate vitae ac nibh. Fusce blandit dui in elit porta aliquet. Nunc semper interdum sapien. Nunc condimentum felis non lacus porttitor, eget consequat massa fringilla. Ut facilisis lobortis tristique. In non pulvinar massa. Phasellus eu maximus metus.</p>
+
+			<p>Nulla porttitor efficitur ornare. Sed efficitur tortor neque. Cras tempus tellus nec lacus venenatis hendrerit. Quisque at mauris ac risus gravida dapibus vel eget risus. Phasellus scelerisque sapien felis, non molestie urna dictum eu. Praesent vitae mauris faucibus mauris mollis posuere. Nulla facilisi. Aenean dignissim egestas dolor ac fringilla. Vivamus efficitur risus eu diam dignissim, sed bibendum ipsum aliquam.</p>
+
+			<p>Maecenas ut malesuada massa, sit amet dapibus ipsum. Quisque tincidunt lectus lorem. Sed viverra tincidunt mauris in feugiat. Nam sit amet finibus massa. Donec a iaculis tellus. Etiam orci magna, egestas vel nibh quis, posuere mattis ipsum. Proin faucibus id nibh tempus gravida. Nam consequat volutpat est vitae congue. Vestibulum erat enim, convallis sit amet libero ut, aliquet convallis lacus. Ut pellentesque orci vel ligula mattis mattis. In commodo erat nisl, sit amet sodales massa ornare a. Donec rutrum, nisi eget semper vestibulum, purus est lobortis dui, quis euismod nibh diam vel velit. Nullam magna lacus, semper ut nulla ut, molestie venenatis neque. Duis volutpat orci sapien, vel pretium elit placerat non. Praesent aliquam varius cursus. Pellentesque sit amet mi tincidunt enim aliquam lobortis.</p>
+		</div>
+		<div id = "teacher">
+			<input type="checkbox" name="teacher" value="teacher1">Teacher 1<br />
+			<input type="checkbox" name="teacher" value="teacher2">Teacher 2<br />
+			<input type="checkbox" name="teacher" value="teacher3">Teacher 3<br />
+		</div>
+		<div id = "area">
+			<input type="checkbox" name="area" value="style">Style<br />
+			<input type="checkbox" name="area" value="interests">Interests<br />
+			<input type="checkbox" name="area" value="strengths">Strengths<br />
+			<input type="checkbox" name="area" value="weaknesses">Weaknesses<br />
+		</div>
+		<div id = "grade">
+			<input type="checkbox" name="grade" value="grade1">Grade 1<br />
+			<input type="checkbox" name="grade" value="grade2">Grade 2<br />
+			<input type="checkbox" name="grade" value="grade3">Grade 3<br />
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+	#dashboard {
+	  width: 97vw;
+	  height: 95vh;
+	  position: absolute;
+	  padding-top: 1vh;
+	  padding-left: 1vw;
+	  padding-right: 1vw;
+	  padding-bottom: 1vh;
+	  display: inline-block;
+	  background-color: #DEDEDE;
+	}
+	#header {
+	  text-align: center;
+	  width: 97vw;
+	  height: 10vh;
+	  left: 1vw;
+	  position: absolute;
+	  display: inline-block;
+	  border-style: solid;
+	  border-width: 1px;
+	  background-color: #ECECEC;
+	}
+	#back {
+	  position: absolute;
+	  display: inline-block;
+	}
+	#time {
+	  text-align: center;
+	  width: 96vw;
+	  height: 10vh;
+	  left: 2vw;
+	  top: 14vh;
+	  position: fixed;
+	  display: inline-block;
+	  border-style: solid;
+	  border-width: 1px;
+	  background-color: #ECECEC;
+	}
+	#subject {
+	  text-align: center;
+	  width: 10vw;
+	  height: 70vh;
+	  left: 2vw;
+	  top: 26vh;
+	  position: fixed;
+	  display: inline-block;
+	  border-style: solid;
+	  border-width: 1px;
+	  background-color: #ECECEC;
+	}
+	#graph {
+	  text-align: center;
+	  width: 85vw;
+	  height: 70vh;
+	  left: 13vw;
+	  top: 26vh;
+	  position: fixed;
+	  display: inline-block;
+	  border-style: solid;
+	  border-width: 1px;
+	  background-color: #ECECEC;
+	}
+	.header {
+		text-align: center;
+		font-size: 20px;
+	}
+	</style>
+
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<script>	
+	</script>
+</head>
+
+<body>
+	<div id = "dashboard">
+		<div id = "header">
+		JOHN DOE <br />
+		Performance Over Time <br />
+		</div>
+		<div id = "back">
+			<button type="button"  onclick="location.href=''">Back</button>
+		</div>
+		<div id="time">
+			<form id="timeSelector">
+				<input type="checkbox" name="grade" value="total">All
+				<input type="checkbox" name="grade" value="one">Grade 1
+				<input type="checkbox" name="grade" value="two">Grade 2
+				<input type="checkbox" name="grade" value="three">Grade 3
+			</form>
+		</div>
+		<div id="subject">
+			<form id="subjectSelector">
+				<input type="checkbox" name="subject" value="allsub">All<br />
+				<input type="checkbox" name="subject" value="math">Math<br />
+				<input type="checkbox" name="subject" value="history">History<br />
+				<input type="checkbox" name="subject" value="science">Science<br />
+				<input type="checkbox" name="subject" value="english">English<br />
+			</form>
+		</div>
+		<div id="graph">
+		</div>
+	</div>
+</body>
+</html>

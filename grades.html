@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+	#dashboard {
+	  width: 97vw;
+	  position: absolute;
+	  padding-top: 1vh;
+	  padding-left: 1vw;
+	  padding-right: 1vw;
+	  padding-bottom: 1vh;
+	  display: inline-block;
+	  background-color: #DEDEDE;
+	}
+	#overview {
+	  width: 97vw;
+	  height: 95vh;
+	  left: 1vw;
+	  display: show;
+	  background-color: #ECECEC;
+	}
+	#header {
+	  text-align: center;
+	  width: 97vw;
+	  height: 10vh;
+	  left: 1vw;
+	  position: absolute;
+	  display: inline-block;
+	  border-style: solid;
+	  border-width: 1px;
+	  background-color: #ECECEC;
+	}
+	#back {
+	  position: absolute;
+	  display: inline-block;
+	}
+	#weaknesses {
+	  text-align: center;
+	  width: 45vw;
+	  height: 30vh;
+	  margin-top: 12vh;
+	  padding-top: 2px;
+	  padding-bottom: 2px;
+	  padding-left: 2px;
+	  padding-right: 2px;
+	  left: 2vw;
+	  position: fixed;
+	  display: inline-block;
+	  background-color: #FFFFEC;
+	  overflow: auto;
+	}
+	#select {
+	  text-align: center;
+	  width: 10vw;
+	  height: 30vh;
+	  margin-top: 12vh;
+	  left: 47vw;
+	  position: fixed;
+	  display: inline-block;
+	  background-color: #FFFFEC;
+	  overflow: auto;
+	  font-size: 20px;
+	}
+	#grades {
+	  text-align: center;
+	  width: 40vw;
+	  height: 65vh;
+	  margin-top: 18vh;
+	  right: 2vw;
+	  position: fixed;
+	  display: inline-block;
+	  border-style: solid;
+	  border-width: 1px;
+	  background-color: #FFFFEC;
+	  overflow: auto;
+	}
+	#graph {
+	  text-align: center;
+	  width: 55vw;
+	  top: 46vh;
+	  left: 2vw;
+	  margin-bottom: 1vh;
+	  position: fixed;
+	  display: inline-block;
+	  border-style: solid;
+	  border-width: 1px;
+	  background-color: #FFFFEC;
+	  overflow: auto;
+	}
+	.header {
+		text-align: center;
+		font-size: 20px;
+	}
+	</style>
+
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<script>
+
+	var mathShow = false, histShow = false, sciShow = false, engShow = true;
+	
+	function toggleMath() {
+		console.log(mathShow);
+		if (mathShow) {
+			$( "#math" ).css( "display", "none" );
+			mathShow = false;
+		} else
+		{
+			$( "#math" ).css( "display", "block" );
+			mathShow = true;
+		}
+		return;
+	}
+	
+	function toggleHistory() {
+		console.log(histShow);
+		if (histShow) {
+			$( "#history" ).css( "display", "none" );
+			histShow = false;
+		} else
+		{
+			$( "#history" ).css( "display", "block" );
+			histShow = true;
+		}
+		return;
+	}
+	
+	function toggleScience() {
+		console.log(sciShow);
+		if (sciShow) {
+			$( "#science" ).css( "display", "none" );
+			sciShow = false;
+		} else
+		{
+			$( "#science" ).css( "display", "block" );
+			sciShow = true;
+		}
+		return;
+
+	}
+	
+	function toggleEnglish() {
+		console.log(engShow);
+		if (engShow) {
+			$( "#english" ).css( "display", "none" );
+			engShow = false;
+		} else
+		{
+			$( "#english" ).css( "display", "block" );
+			engShow = true;
+		}
+		return;
+
+	}
+	
+	</script>
+</head>
+
+<body>
+	<div id = "dashboard">
+		<div id = "header">
+		JOHN DOE <br />
+		Grade Report <br />
+		<select>
+		  <option value="three">Grade 3</option>
+		  <option value="two">Grade 2</option>
+		  <option value="one">Grade 1</option>
+		</select>
+		</div>
+		<div id = "back">
+			<button type="button"  onclick="location.href=''">Back</button>
+		</div>
+		<div id = "overview">
+			<div id = "weaknesses">
+				<p class = "header">Weaknesses</p>
+
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus leo ante, et sollicitudin nulla eleifend nec. Vivamus eu convallis enim. Praesent eros sapien, fermentum in mollis et, maximus quis metus. Ut libero purus, semper id massa vitae, imperdiet bibendum nisi. Fusce a justo at quam posuere euismod ac non tellus. In hac habitasse platea dictumst. Nullam sollicitudin enim nunc, a placerat nisi blandit vestibulum. Pellentesque pretium quam malesuada quam feugiat pretium. Praesent placerat purus quis ipsum elementum, at hendrerit neque rutrum. Aenean purus lorem, bibendum sed feugiat vitae, aliquet vel mauris. Curabitur nec nulla ac mi sagittis suscipit quis non urna.</p>
+
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus gravida euismod tellus, maximus efficitur turpis tempus vel. Ut fringilla odio et lectus cursus viverra. Ut volutpat tempus turpis, sed aliquam dolor vulputate sit amet. Nam auctor neque vitae risus venenatis commodo. Etiam lacinia turpis tincidunt semper sodales. Pellentesque quis sollicitudin massa. Proin tincidunt elit nisl, sed congue nibh convallis id. Fusce vitae mauris vel arcu accumsan gravida. Pellentesque at ultricies ante.</p>
+
+				<p>Donec vitae tempus lectus. Donec semper tempor turpis non tincidunt. In sed libero eu diam euismod vulputate vitae ac nibh. Fusce blandit dui in elit porta aliquet. Nunc semper interdum sapien. Nunc condimentum felis non lacus porttitor, eget consequat massa fringilla. Ut facilisis lobortis tristique. In non pulvinar massa. Phasellus eu maximus metus.</p>
+			</div>
+			<div id = "select">
+				<form id="weaknessSelector">
+					<input type="checkbox" name="subject" value="math">Math<br />
+					<input type="checkbox" name="subject" value="history">History<br />
+					<input type="checkbox" name="subject" value="science">Science<br />
+					<input type="checkbox" name="subject" value="english">English<br />
+				</form>
+			</div>
+			<div id = "grades">
+				<p class = "header" onclick="toggleMath();">Math</p>
+				<p id = "math" style="display: none">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus leo ante, et sollicitudin nulla eleifend nec. Vivamus eu convallis enim. Praesent eros sapien, fermentum in mollis et, maximus quis metus. Ut libero purus, semper id massa vitae, imperdiet bibendum nisi. Fusce a justo at quam posuere euismod ac non tellus. In hac habitasse platea dictumst. Nullam sollicitudin enim nunc, a placerat nisi blandit vestibulum. Pellentesque pretium quam malesuada quam feugiat pretium. Praesent placerat purus quis ipsum elementum, at hendrerit neque rutrum. Aenean purus lorem, bibendum sed feugiat vitae, aliquet vel mauris. Curabitur nec nulla ac mi sagittis suscipit quis non urna.</p>
+				<p class = "header" onclick="toggleHistory();">History</p>
+				<p id = "history" style="display: none">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus leo ante, et sollicitudin nulla eleifend nec. Vivamus eu convallis enim. Praesent eros sapien, fermentum in mollis et, maximus quis metus. Ut libero purus, semper id massa vitae, imperdiet bibendum nisi. Fusce a justo at quam posuere euismod ac non tellus. In hac habitasse platea dictumst. Nullam sollicitudin enim nunc, a placerat nisi blandit vestibulum. Pellentesque pretium quam malesuada quam feugiat pretium. Praesent placerat purus quis ipsum elementum, at hendrerit neque rutrum. Aenean purus lorem, bibendum sed feugiat vitae, aliquet vel mauris. Curabitur nec nulla ac mi sagittis suscipit quis non urna.</p>
+				<p class = "header" onclick="toggleScience();">Science</p>
+				<p id = "science" style="display: none">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus leo ante, et sollicitudin nulla eleifend nec. Vivamus eu convallis enim. Praesent eros sapien, fermentum in mollis et, maximus quis metus. Ut libero purus, semper id massa vitae, imperdiet bibendum nisi. Fusce a justo at quam posuere euismod ac non tellus. In hac habitasse platea dictumst. Nullam sollicitudin enim nunc, a placerat nisi blandit vestibulum. Pellentesque pretium quam malesuada quam feugiat pretium. Praesent placerat purus quis ipsum elementum, at hendrerit neque rutrum. Aenean purus lorem, bibendum sed feugiat vitae, aliquet vel mauris. Curabitur nec nulla ac mi sagittis suscipit quis non urna.</p>
+				<p class = "header" onclick="toggleEnglish();">English</p>
+				<p id = "english" style="display: block">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus leo ante, et sollicitudin nulla eleifend nec. Vivamus eu convallis enim. Praesent eros sapien, fermentum in mollis et, maximus quis metus. Ut libero purus, semper id massa vitae, imperdiet bibendum nisi. Fusce a justo at quam posuere euismod ac non tellus. In hac habitasse platea dictumst. Nullam sollicitudin enim nunc, a placerat nisi blandit vestibulum. Pellentesque pretium quam malesuada quam feugiat pretium. Praesent placerat purus quis ipsum elementum, at hendrerit neque rutrum. Aenean purus lorem, bibendum sed feugiat vitae, aliquet vel mauris. Curabitur nec nulla ac mi sagittis suscipit quis non urna.</p>
+
+				<button type="button"  onclick="location.href=''">Click Me!</button>
+			</div>
+			<div id = "graph">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus gravida euismod tellus, maximus efficitur turpis tempus vel. Ut fringilla odio et lectus cursus viverra. Ut volutpat tempus turpis, sed aliquam dolor vulputate sit amet. Nam auctor neque vitae risus venenatis commodo. Etiam lacinia turpis tincidunt semper sodales. Pellentesque quis sollicitudin massa. Proin tincidunt elit nisl, sed congue nibh convallis id. Fusce vitae mauris vel arcu accumsan gravida. Pellentesque at ultricies ante.</p>
+
+				<p>Donec vitae tempus lectus. Donec semper tempor turpis non tincidunt. In sed libero eu diam euismod vulputate vitae ac nibh. Fusce blandit dui in elit porta aliquet. Nunc semper interdum sapien. Nunc condimentum felis non lacus porttitor, eget consequat massa fringilla. Ut facilisis lobortis tristique. In non pulvinar massa. Phasellus eu maximus metus.</p>
+
+				<p>Nulla volutpat convallis nibh, ac volutpat libero molestie et. Donec sed ligula purus. Integer tincidunt semper eros. Etiam justo nibh, ullamcorper eu eros eu, iaculis faucibus nisi. Sed eu bibendum ex, vel tincidunt quam. Nam faucibus mattis orci, id lobortis est feugiat vel. Ut hendrerit risus auctor sapien facilisis lacinia. Suspendisse potenti. Donec condimentum pellentesque enim a rutrum.</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
