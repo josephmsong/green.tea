@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+	#dashboard {
+	  width: 97vw;
+	  height: 95vh;
+	  position: absolute;
+	  padding-top: 1vh;
+	  padding-left: 1vw;
+	  padding-right: 1vw;
+	  padding-bottom: 1vh;
+	  display: inline-block;
+	  background-color: #DEDEDE;
+	}
+	#header {
+	  text-align: center;
+	  width: 97vw;
+	  height: 35vh;
+	  top:10vh;
+	  left: 1vw;
+	  position: absolute;
+	  display: inline-block;
+	  font-size: x-large;
+
+	}
+	
+	#login{
+		text-align: center;
+		font-size: large;
+		display: inline-block;
+		width:97vw;
+		top: 40vh;
+		position: absolute;
+	  	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	}
+	#remember{
+		text-align: center;
+		font-size: small;
+		display: inline-block;
+		width:97vw;
+		top: vh;
+		position: absolute;
+	  	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	}
+	#graph {
+	  text-align: center;
+	  width: 85vw;
+	  height: 70vh;
+	  left: 13vw;
+	  top: 26vh;
+	  position: fixed;
+	  display: inline-block;
+	  border-style: solid;
+	  border-width: 1px;
+	  background-color: #ECECEC;
+	}
+	.header {
+		text-align: center;
+		font-size: 20px;
+	}
+	</style>
+
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<script>	
+	</script>
+</head>
+
+<body>
+	<div id = "header">
+		<img src="rivet.png"  style="width:320px;">
+	</div>
+	<div id="login">
+		<form>
+		Username<br>
+  		<input type="text" name="user"><br><br>
+  		Password<br>
+  		<input type="text" name="password"><br><br>
+		<form id="rememberMe">
+			<input type="checkbox" name="remem" value="total"> <small> Remember Me </small>		
+		</form>
+  		<input type="submit" value="Login"><br><br>
+		
+	</div>
+	
+</body>	
