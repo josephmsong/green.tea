@@ -3,22 +3,30 @@
 	<head>
 		<style>
 		.container {
-			margin: 50px;
-			position:absolute;
+			width: 100vw; 
+		    height: 56.25vw; /* height:width ratio = 9/16 = .5625  */
+		    max-height: 100vh;
+		    max-width: 177.78vh; /* 16/9 = 1.778 */
+		    margin: auto;
+		    position: absolute;
+		    top:0;bottom:0; /* vertical center */
+		    left:0;right:0; /* horizontal center */
 		}
 		.leftnav {
 			border-style:solid;
 			border-width:1px;
 			float:left;
 			width:250px;
+			margin-left:50px;
 		}
 		.middle {
 			float:left;
 			margin-left:30px;
 		}
 		.right {
-			float:left;
+			float:right;
 			margin-left:30px;
+			margin-right:150px;
 		}
 		.bottom {
 			margin-left:30px;
@@ -33,14 +41,14 @@
 		.graph {
 			border-style:solid;
 			border-width:1px;
-			width:450px;
-			height:350px;
+			width:300px;
+			height:225px;
 		}
 		.botgraph {
 			border-style:solid;
 			border-width:1px;
-			height:347px;
-			width:932px;
+			height:250px;
+			width:725px;
 		}
 		.weaknesses {
 			font-size:110%;
@@ -57,33 +65,13 @@
 		</style>
 	</head>
 	<div class = "container">
-		<label style="display:block;text-align:center;margin:auto;font-size:300%;font-weight:bold;margin-left:80px">RIVET</label>
-		<br/>
-		<label style="display:block;text-align:center;margin:auto;font-size:125%;font-weight:bold;margin-left:80px">Mrs. Smith</label>
-		<br/>
+		<label style="display:block;text-align:center;margin:auto;font-size:300%;font-weight:bold">RIVET</label>
+		<label style="display:block;text-align:center;margin:auto;font-size:125%;font-weight:bold">Mrs. Smith</label>
 		<div class="leftnav" style="height:30px">
 			<div style="margin-left:5px;margin-top:8px;color:lightgray">Search for a student...</div>
 		</div>
 		<br/><br/><br/>
-		<div class="leftnav" style="height:770px">
-			<div class="student">
-				<div class="student"><img src="propic.jpeg" style="height:80px;
-				width:90px"></img></div>
-				<label class="student">Student 1</label>
-				<a href="" style="float:right;color:red;margin-top:60px;margin-right:5px;font-size:80%">View Profile</a>
-			</div>
-			<div class="student">
-				<div class="student"><img src="propic.jpeg" style="height:80px;
-				width:90px"></img></div>
-				<label class="student">Student 1</label>
-				<a href="" style="float:right;color:red;margin-top:60px;margin-right:5px;font-size:80%">View Profile</a>
-			</div>
-			<div class="student">
-				<div class="student"><img src="propic.jpeg" style="height:80px;
-				width:90px"></img></div>
-				<label class="student">Student 1</label>
-				<a href="" style="float:right;color:red;margin-top:60px;margin-right:5px;font-size:80%">View Profile</a>
-			</div>
+		<div class="leftnav" style="height:550px">
 			<div class="student">
 				<div class="student"><img src="propic.jpeg" style="height:80px;
 				width:90px"></img></div>
