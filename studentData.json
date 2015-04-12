@@ -1,0 +1,505 @@
+[
+    {
+        "name": "Joseph Song",
+        "picture": 1,
+        "year": [
+            {
+                "0": [
+                    {
+                        "grades": [
+                            {
+                                "math": [
+                                    {
+                                        "addition": 98, 
+                                        "subtraction": 90, 
+                                        "division": 93, 
+                                        "multiplication": 87
+                                    }
+                                ], 
+
+                                "history": [
+                                    {
+                                        "pledge": 93, 
+                                        "constitution": 87, 
+                                        "war": 95, 
+                                        "law": 90
+                                    }
+                                ], 
+
+                                "science": [
+                                    {
+                                        "acids": 87, 
+                                        "entropy": 100, 
+                                        "elements": 93, 
+                                        "animals": 90,
+                                    }
+                                ], 
+
+                                "english": [
+                                    {
+                                        "spelling": 90, 
+                                        "grammar": 93, 
+                                        "punctuation": 95, 
+                                        "sentences": 90
+                                    }
+                                ]
+                            }
+                        ], 
+
+                        "comments": [
+                            {
+                                "style": "Joseph is a very visual learner and particularly enjoys drawing and watching videos. He is good at grasping concepts related to shapes and has picked up math very quickly.",
+                                "behavior": "Joseph tends to be very quiet and reserved. He is generally well-behaved. However, he gets cranky very easily when tired.",
+                                "strengths": "As mentioned above, Joseph is quick to pick up on math concepts, in particular geometry. He seems to have a good understanding of the logic involved in these sorts of tasks and understands them very quickly.",
+                                "weaknesses": "Joseph gets frustrated when he is not able to understand things, particularly in science. He has troubles with acids and bases" 
+                            }
+                        ]
+                    }
+                ],
+
+                "1": [
+                    {
+                        "grades": [
+                            {
+                                "math": [
+                                    {
+                                        "addition": 98, 
+                                        "subtraction": 90, 
+                                        "division": 93, 
+                                        "multiplication": 87
+                                    }
+                                ], 
+
+                                "history": [
+                                    {
+                                        "pledge": 93, 
+                                        "constitution": 87, 
+                                        "war": 95, 
+                                        "law": 90
+                                    }
+                                ], 
+
+                                "science": [
+                                    {
+                                        "acids": 87, 
+                                        "entropy": 100, 
+                                        "elements": 93, 
+                                        "animals": 90,
+                                    }
+                                ], 
+
+                                "english": [
+                                    {
+                                        "spelling": 90, 
+                                        "grammar": 93, 
+                                        "punctuation": 95, 
+                                        "sentences": 90
+                                    }
+                                ]
+                            }
+                        ], 
+
+                        "comments": [
+                            {
+                                "style": "Joseph is a very visual learner and particularly enjoys drawing and watching videos. He is good at grasping concepts related to shapes and has picked up math very quickly.",
+                                "behavior": "Joseph tends to be very quiet and reserved. He is generally well-behaved. However, he gets cranky very easily when tired.",
+                                "strengths": "As mentioned above, Joseph is quick to pick up on math concepts, in particular geometry. He seems to have a good understanding of the logic involved in these sorts of tasks and understands them very quickly.",
+                                "weaknesses": "Joseph gets frustrated when he is not able to understand things, particularly in science. He has troubles with acids and bases" 
+                            }
+                        ]
+                    }
+                ],
+
+                "2": [
+                    {
+                        "grades": [
+                            {
+                                "math": [
+                                    {
+                                        "addition": 98, 
+                                        "subtraction": 90, 
+                                        "division": 93, 
+                                        "multiplication": 87
+                                    }
+                                ], 
+
+                                "history": [
+                                    {
+                                        "pledge": 93, 
+                                        "constitution": 87, 
+                                        "war": 95, 
+                                        "law": 90
+                                    }
+                                ], 
+
+                                "science": [
+                                    {
+                                        "acids": 87, 
+                                        "entropy": 100, 
+                                        "elements": 93, 
+                                        "animals": 90,
+                                    }
+                                ], 
+
+                                "english": [
+                                    {
+                                        "spelling": 90, 
+                                        "grammar": 93, 
+                                        "punctuation": 95, 
+                                        "sentences": 90
+                                    }
+                                ]
+                            }
+                        ], 
+
+                        "comments": [
+                            {
+                                "style": "Joseph is a very visual learner and particularly enjoys drawing and watching videos. He is good at grasping concepts related to shapes and has picked up math very quickly.",
+                                "behavior": "Joseph tends to be very quiet and reserved. He is generally well-behaved. However, he gets cranky very easily when tired.",
+                                "strengths": "As mentioned above, Joseph is quick to pick up on math concepts, in particular geometry. He seems to have a good understanding of the logic involved in these sorts of tasks and understands them very quickly.",
+                                "weaknesses": "Joseph gets frustrated when he is not able to understand things, particularly in science. He has troubles with acids and bases" 
+                            }
+                        ]
+                    }
+                ],
+
+            }
+        ]
+    },
+
+    {
+        "name": "Joseph Song",
+        "picture": 1,
+        "year": [
+            {
+                "0": [
+                    {
+                        "grades": [
+                            {
+                                "math": [
+                                    {
+                                        "addition": 98, 
+                                        "subtraction": 90, 
+                                        "division": 93, 
+                                        "multiplication": 87
+                                    }
+                                ], 
+
+                                "history": [
+                                    {
+                                        "pledge": 93, 
+                                        "constitution": 87, 
+                                        "war": 95, 
+                                        "law": 90
+                                    }
+                                ], 
+
+                                "science": [
+                                    {
+                                        "acids": 87, 
+                                        "entropy": 100, 
+                                        "elements": 93, 
+                                        "animals": 90,
+                                    }
+                                ], 
+
+                                "english": [
+                                    {
+                                        "spelling": 90, 
+                                        "grammar": 93, 
+                                        "punctuation": 95, 
+                                        "sentences": 90
+                                    }
+                                ]
+                            }
+                        ], 
+
+                        "comments": [
+                            {
+                                "style": "Joseph is a very visual learner and particularly enjoys drawing and watching videos. He is good at grasping concepts related to shapes and has picked up math very quickly.",
+                                "behavior": "Joseph tends to be very quiet and reserved. He is generally well-behaved. However, he gets cranky very easily when tired.",
+                                "strengths": "As mentioned above, Joseph is quick to pick up on math concepts, in particular geometry. He seems to have a good understanding of the logic involved in these sorts of tasks and understands them very quickly.",
+                                "weaknesses": "Joseph gets frustrated when he is not able to understand things, particularly in science. He has troubles with acids and bases" 
+                            }
+                        ]
+                    }
+                ],
+
+                "1": [
+                    {
+                        "grades": [
+                            {
+                                "math": [
+                                    {
+                                        "addition": 98, 
+                                        "subtraction": 90, 
+                                        "division": 93, 
+                                        "multiplication": 87
+                                    }
+                                ], 
+
+                                "history": [
+                                    {
+                                        "pledge": 93, 
+                                        "constitution": 87, 
+                                        "war": 95, 
+                                        "law": 90
+                                    }
+                                ], 
+
+                                "science": [
+                                    {
+                                        "acids": 87, 
+                                        "entropy": 100, 
+                                        "elements": 93, 
+                                        "animals": 90,
+                                    }
+                                ], 
+
+                                "english": [
+                                    {
+                                        "spelling": 90, 
+                                        "grammar": 93, 
+                                        "punctuation": 95, 
+                                        "sentences": 90
+                                    }
+                                ]
+                            }
+                        ], 
+
+                        "comments": [
+                            {
+                                "style": "Joseph is a very visual learner and particularly enjoys drawing and watching videos. He is good at grasping concepts related to shapes and has picked up math very quickly.",
+                                "behavior": "Joseph tends to be very quiet and reserved. He is generally well-behaved. However, he gets cranky very easily when tired.",
+                                "strengths": "As mentioned above, Joseph is quick to pick up on math concepts, in particular geometry. He seems to have a good understanding of the logic involved in these sorts of tasks and understands them very quickly.",
+                                "weaknesses": "Joseph gets frustrated when he is not able to understand things, particularly in science. He has troubles with acids and bases" 
+                            }
+                        ]
+                    }
+                ],
+
+                "2": [
+                    {
+                        "grades": [
+                            {
+                                "math": [
+                                    {
+                                        "addition": 98, 
+                                        "subtraction": 90, 
+                                        "division": 93, 
+                                        "multiplication": 87
+                                    }
+                                ], 
+
+                                "history": [
+                                    {
+                                        "pledge": 93, 
+                                        "constitution": 87, 
+                                        "war": 95, 
+                                        "law": 90
+                                    }
+                                ], 
+
+                                "science": [
+                                    {
+                                        "acids": 87, 
+                                        "entropy": 100, 
+                                        "elements": 93, 
+                                        "animals": 90,
+                                    }
+                                ], 
+
+                                "english": [
+                                    {
+                                        "spelling": 90, 
+                                        "grammar": 93, 
+                                        "punctuation": 95, 
+                                        "sentences": 90
+                                    }
+                                ]
+                            }
+                        ], 
+
+                        "comments": [
+                            {
+                                "style": "Joseph is a very visual learner and particularly enjoys drawing and watching videos. He is good at grasping concepts related to shapes and has picked up math very quickly.",
+                                "behavior": "Joseph tends to be very quiet and reserved. He is generally well-behaved. However, he gets cranky very easily when tired.",
+                                "strengths": "As mentioned above, Joseph is quick to pick up on math concepts, in particular geometry. He seems to have a good understanding of the logic involved in these sorts of tasks and understands them very quickly.",
+                                "weaknesses": "Joseph gets frustrated when he is not able to understand things, particularly in science. He has troubles with acids and bases" 
+                            }
+                        ]
+                    }
+                ],
+
+            }
+        ]
+    },
+
+    {
+        "name": "Joseph Song",
+        "picture": 1,
+        "year": [
+            {
+                "0": [
+                    {
+                        "grades": [
+                            {
+                                "math": [
+                                    {
+                                        "addition": 98, 
+                                        "subtraction": 90, 
+                                        "division": 93, 
+                                        "multiplication": 87
+                                    }
+                                ], 
+
+                                "history": [
+                                    {
+                                        "pledge": 93, 
+                                        "constitution": 87, 
+                                        "war": 95, 
+                                        "law": 90
+                                    }
+                                ], 
+
+                                "science": [
+                                    {
+                                        "acids": 87, 
+                                        "entropy": 100, 
+                                        "elements": 93, 
+                                        "animals": 90,
+                                    }
+                                ], 
+
+                                "english": [
+                                    {
+                                        "spelling": 90, 
+                                        "grammar": 93, 
+                                        "punctuation": 95, 
+                                        "sentences": 90
+                                    }
+                                ]
+                            }
+                        ], 
+
+                        "comments": [
+                            {
+                                "style": "Joseph is a very visual learner and particularly enjoys drawing and watching videos. He is good at grasping concepts related to shapes and has picked up math very quickly.",
+                                "behavior": "Joseph tends to be very quiet and reserved. He is generally well-behaved. However, he gets cranky very easily when tired.",
+                                "strengths": "As mentioned above, Joseph is quick to pick up on math concepts, in particular geometry. He seems to have a good understanding of the logic involved in these sorts of tasks and understands them very quickly.",
+                                "weaknesses": "Joseph gets frustrated when he is not able to understand things, particularly in science. He has troubles with acids and bases" 
+                            }
+                        ]
+                    }
+                ],
+
+                "1": [
+                    {
+                        "grades": [
+                            {
+                                "math": [
+                                    {
+                                        "addition": 98, 
+                                        "subtraction": 90, 
+                                        "division": 93, 
+                                        "multiplication": 87
+                                    }
+                                ], 
+
+                                "history": [
+                                    {
+                                        "pledge": 93, 
+                                        "constitution": 87, 
+                                        "war": 95, 
+                                        "law": 90
+                                    }
+                                ], 
+
+                                "science": [
+                                    {
+                                        "acids": 87, 
+                                        "entropy": 100, 
+                                        "elements": 93, 
+                                        "animals": 90,
+                                    }
+                                ], 
+
+                                "english": [
+                                    {
+                                        "spelling": 90, 
+                                        "grammar": 93, 
+                                        "punctuation": 95, 
+                                        "sentences": 90
+                                    }
+                                ]
+                            }
+                        ], 
+
+                        "comments": [
+                            {
+                                "style": "Joseph is a very visual learner and particularly enjoys drawing and watching videos. He is good at grasping concepts related to shapes and has picked up math very quickly.",
+                                "behavior": "Joseph tends to be very quiet and reserved. He is generally well-behaved. However, he gets cranky very easily when tired.",
+                                "strengths": "As mentioned above, Joseph is quick to pick up on math concepts, in particular geometry. He seems to have a good understanding of the logic involved in these sorts of tasks and understands them very quickly.",
+                                "weaknesses": "Joseph gets frustrated when he is not able to understand things, particularly in science. He has troubles with acids and bases" 
+                            }
+                        ]
+                    }
+                ],
+
+                "2": [
+                    {
+                        "grades": [
+                            {
+                                "math": [
+                                    {
+                                        "addition": 98, 
+                                        "subtraction": 90, 
+                                        "division": 93, 
+                                        "multiplication": 87
+                                    }
+                                ], 
+
+                                "history": [
+                                    {
+                                        "pledge": 93, 
+                                        "constitution": 87, 
+                                        "war": 95, 
+                                        "law": 90
+                                    }
+                                ], 
+
+                                "science": [
+                                    {
+                                        "acids": 87, 
+                                        "entropy": 100, 
+                                        "elements": 93, 
+                                        "animals": 90,
+                                    }
+                                ], 
+
+                                "english": [
+                                    {
+                                        "spelling": 90, 
+                                        "grammar": 93, 
+                                        "punctuation": 95, 
+                                        "sentences": 90
+                                    }
+                                ]
+                            }
+                        ], 
+
+                        "comments": [
+                            {
+                                "style": "Joseph is a very visual learner and particularly enjoys drawing and watching videos. He is good at grasping concepts related to shapes and has picked up math very quickly.",
+                                "behavior": "Joseph tends to be very quiet and reserved. He is generally well-behaved. However, he gets cranky very easily when tired.",
+                                "strengths": "As mentioned above, Joseph is quick to pick up on math concepts, in particular geometry. He seems to have a good understanding of the logic involved in these sorts of tasks and understands them very quickly.",
+                                "weaknesses": "Joseph gets frustrated when he is not able to understand things, particularly in science. He has troubles with acids and bases" 
+                            }
+                        ]
+                    }
+                ],
+
+            }
+        ]
+    }
+]
