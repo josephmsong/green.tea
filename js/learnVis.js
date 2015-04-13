@@ -41,7 +41,8 @@ LearningGraphs.prototype.initVis = function(){
 
     this.yAxis = d3.svg.axis()
       .scale(this.y)
-      .orient("left");
+      .orient("left")
+      .tickFormat(d3.format(",.0f"));
 
     this.xAxis = d3.svg.axis()
       .scale(this.x)
@@ -80,16 +81,18 @@ LearningGraphs.prototype.updateVis = function(){
 
     this.y.domain(d3.extent(this.displayData.learning, function(d, i) {return d; }));
 
+    this.yAxis.tickValues([0, 1, 2]);
+
     // updates axis
     this.svg.select(".x.axis")
         .call(this.xAxis)
         .selectAll("text")
         	.text(function(d, i){return that.labelNames[i];})
         	.style("text-anchor", "end")
-        	.attr("x", -10)
-        	.attr("y", 10)
+        	.attr("x", -15)
+        	.attr("y", -9)
         	.attr("dy", "0.15em")
-        	.attr("font-size", "15%")
+        	.attr("font-size", "35%")
         	.attr("transform", function(d){
         		return "rotate(-65)";
         	});
