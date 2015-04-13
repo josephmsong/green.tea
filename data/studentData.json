@@ -1,0 +1,461 @@
+[
+    {
+        "name": "Joseph Song",
+        "picture": "josephsong.jpg",
+        "learning": "visual",
+        "year": [
+            {
+                "0": [
+                    {
+                        "grades": [
+                            {
+                                "math": [
+                                    {
+                                        "addition": 98,
+                                        "subtraction": 90,
+                                        "division": 93,
+                                        "multiplication": 87
+                                    }
+                                ],
+                                "history": [
+                                    {
+                                        "pledge": 93,
+                                        "constitution": 87,
+                                        "war": 95,
+                                        "law": 90
+                                    }
+                                ],
+                                "science": [
+                                    {
+                                        "acids": 87,
+                                        "entropy": 100,
+                                        "elements": 93,
+                                        "animals": 90
+                                    }
+                                ],
+                                "english": [
+                                    {
+                                        "spelling": 90,
+                                        "grammar": 93,
+                                        "punctuation": 95,
+                                        "sentences": 90
+                                    }
+                                ]
+                            }
+                        ],
+                        "comments": [
+                            {
+                                "style": "Joseph is a very visual learner and particularly enjoys drawing and watching videos. He is good at grasping concepts related to shapes and has picked up math very quickly.",
+                                "behavior": "Joseph tends to be very quiet and reserved. He is generally well-behaved. However, he gets cranky very easily when tired.",
+                                "strengths": "As mentioned above, Joseph is quick to pick up on math concepts, in particular geometry. He seems to have a good understanding of the logic involved in these sorts of tasks and understands them very quickly.",
+                                "weaknesses": "Joseph gets frustrated when he is not able to understand things, particularly in science. He has troubles with acids and bases"
+                            }
+                        ]
+                    }
+                ],
+                "1": [
+                    {
+                        "grades": [
+                            {
+                                "math": [
+                                    {
+                                        "addition": 98,
+                                        "subtraction": 90,
+                                        "division": 93,
+                                        "multiplication": 87
+                                    }
+                                ],
+                                "history": [
+                                    {
+                                        "pledge": 93,
+                                        "constitution": 87,
+                                        "war": 95,
+                                        "law": 90
+                                    }
+                                ],
+                                "science": [
+                                    {
+                                        "acids": 87,
+                                        "entropy": 100,
+                                        "elements": 93,
+                                        "animals": 90
+                                    }
+                                ],
+                                "english": [
+                                    {
+                                        "spelling": 90,
+                                        "grammar": 93,
+                                        "punctuation": 95,
+                                        "sentences": 90
+                                    }
+                                ]
+                            }
+                        ],
+                        "comments": [
+                            {
+                                "style": "Joseph is a very visual learner and particularly enjoys drawing and watching videos. He is good at grasping concepts related to shapes and has picked up math very quickly.",
+                                "behavior": "Joseph tends to be very quiet and reserved. He is generally well-behaved. However, he gets cranky very easily when tired.",
+                                "strengths": "As mentioned above, Joseph is quick to pick up on math concepts, in particular geometry. He seems to have a good understanding of the logic involved in these sorts of tasks and understands them very quickly.",
+                                "weaknesses": "Joseph gets frustrated when he is not able to understand things, particularly in science. He has troubles with acids and bases"
+                            }
+                        ]
+                    }
+                ],
+                "2": [
+                    {
+                        "grades": [
+                            {
+                                "math": [
+                                    {
+                                        "addition": 98,
+                                        "subtraction": 90,
+                                        "division": 93,
+                                        "multiplication": 87
+                                    }
+                                ],
+                                "history": [
+                                    {
+                                        "pledge": 93,
+                                        "constitution": 87,
+                                        "war": 95,
+                                        "law": 90
+                                    }
+                                ],
+                                "science": [
+                                    {
+                                        "acids": 87,
+                                        "entropy": 100,
+                                        "elements": 93,
+                                        "animals": 90
+                                    }
+                                ],
+                                "english": [
+                                    {
+                                        "spelling": 90,
+                                        "grammar": 93,
+                                        "punctuation": 95,
+                                        "sentences": 90
+                                    }
+                                ]
+                            }
+                        ],
+                        "comments": [
+                            {
+                                "style": "Joseph is a very visual learner and particularly enjoys drawing and watching videos. He is good at grasping concepts related to shapes and has picked up math very quickly.",
+                                "behavior": "Joseph tends to be very quiet and reserved. He is generally well-behaved. However, he gets cranky very easily when tired.",
+                                "strengths": "As mentioned above, Joseph is quick to pick up on math concepts, in particular geometry. He seems to have a good understanding of the logic involved in these sorts of tasks and understands them very quickly.",
+                                "weaknesses": "Joseph gets frustrated when he is not able to understand things, particularly in science. He has troubles with acids and bases"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Roseanne Feng",
+        "picture": "roseannefeng.jpg",
+        "learning": "auditory",
+        "year": [
+            {
+                "0": [
+                    {
+                        "grades": [
+                            {
+                                "math": [
+                                    {
+                                        "addition": 98,
+                                        "subtraction": 90,
+                                        "division": 93,
+                                        "multiplication": 87
+                                    }
+                                ],
+                                "history": [
+                                    {
+                                        "pledge": 93,
+                                        "constitution": 87,
+                                        "war": 95,
+                                        "law": 90
+                                    }
+                                ],
+                                "science": [
+                                    {
+                                        "acids": 87,
+                                        "entropy": 100,
+                                        "elements": 93,
+                                        "animals": 90
+                                    }
+                                ],
+                                "english": [
+                                    {
+                                        "spelling": 90,
+                                        "grammar": 93,
+                                        "punctuation": 95,
+                                        "sentences": 90
+                                    }
+                                ]
+                            }
+                        ],
+                        "comments": [
+                            {
+                                "style": "Roseanne is a very visual learner and particularly enjoys drawing and watching videos. She is good at grasping concepts related to shapes and has picked up math very quickly.",
+                                "behavior": "Roseanne tends to be very quiet and reserved. She is generally well-behaved. However, she gets cranky very easily when tired.",
+                                "strengths": "As mentioned above, Roseanne is quick to pick up on math concepts, in particular geometry. She seems to have a good understanding of the logic involved in these sorts of tasks and understands them very quickly.",
+                                "weaknesses": "Roseanne gets frustrated when she is not able to understand things, particularly in science. She has troubles with acids and bases"
+                            }
+                        ]
+                    }
+                ],
+                "1": [
+                    {
+                        "grades": [
+                            {
+                                "math": [
+                                    {
+                                        "addition": 98,
+                                        "subtraction": 90,
+                                        "division": 93,
+                                        "multiplication": 87
+                                    }
+                                ],
+                                "history": [
+                                    {
+                                        "pledge": 93,
+                                        "constitution": 87,
+                                        "war": 95,
+                                        "law": 90
+                                    }
+                                ],
+                                "science": [
+                                    {
+                                        "acids": 87,
+                                        "entropy": 100,
+                                        "elements": 93,
+                                        "animals": 90
+                                    }
+                                ],
+                                "english": [
+                                    {
+                                        "spelling": 90,
+                                        "grammar": 93,
+                                        "punctuation": 95,
+                                        "sentences": 90
+                                    }
+                                ]
+                            }
+                        ],
+                        "comments": [
+                            {
+                                "style": "Roseanne is a very visual learner and particularly enjoys drawing and watching videos. She is good at grasping concepts related to shapes and has picked up math very quickly.",
+                                "behavior": "Roseanne tends to be very quiet and reserved. She is generally well-behaved. However, she gets cranky very easily when tired.",
+                                "strengths": "As mentioned above, Roseanne is quick to pick up on math concepts, in particular geometry. She seems to have a good understanding of the logic involved in these sorts of tasks and understands them very quickly.",
+                                "weaknesses": "Roseanne gets frustrated when she is not able to understand things, particularly in science. She has troubles with acids and bases"
+                            }
+                        ]
+                    }
+                ],
+                "2": [
+                    {
+                        "grades": [
+                            {
+                                "math": [
+                                    {
+                                        "addition": 98,
+                                        "subtraction": 90,
+                                        "division": 93,
+                                        "multiplication": 87
+                                    }
+                                ],
+                                "history": [
+                                    {
+                                        "pledge": 93,
+                                        "constitution": 87,
+                                        "war": 95,
+                                        "law": 90
+                                    }
+                                ],
+                                "science": [
+                                    {
+                                        "acids": 87,
+                                        "entropy": 100,
+                                        "elements": 93,
+                                        "animals": 90
+                                    }
+                                ],
+                                "english": [
+                                    {
+                                        "spelling": 90,
+                                        "grammar": 93,
+                                        "punctuation": 95,
+                                        "sentences": 90
+                                    }
+                                ]
+                            }
+                        ],
+                        "comments": [
+                            {
+                                "style": "Roseanne is a very visual learner and particularly enjoys drawing and watching videos. She is good at grasping concepts related to shapes and has picked up math very quickly.",
+                                "behavior": "Roseanne tends to be very quiet and reserved. She is generally well-behaved. However, she gets cranky very easily when tired.",
+                                "strengths": "As mentioned above, Roseanne is quick to pick up on math concepts, in particular geometry. She seems to have a good understanding of the logic involved in these sorts of tasks and understands them very quickly.",
+                                "weaknesses": "Roseanne gets frustrated when she is not able to understand things, particularly in science. She has troubles with acids and bases"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Lilly H. Shen",
+        "picture": "lillyshen.jpg",
+        "learning": "auditory",
+        "year": [
+            {
+                "0": [
+                    {
+                        "grades": [
+                            {
+                                "math": [
+                                    {
+                                        "addition": 98,
+                                        "subtraction": 90,
+                                        "division": 93,
+                                        "multiplication": 87
+                                    }
+                                ],
+                                "history": [
+                                    {
+                                        "pledge": 93,
+                                        "constitution": 87,
+                                        "war": 95,
+                                        "law": 90
+                                    }
+                                ],
+                                "science": [
+                                    {
+                                        "acids": 87,
+                                        "entropy": 100,
+                                        "elements": 93,
+                                        "animals": 90
+                                    }
+                                ],
+                                "english": [
+                                    {
+                                        "spelling": 90,
+                                        "grammar": 93,
+                                        "punctuation": 95,
+                                        "sentences": 90
+                                    }
+                                ]
+                            }
+                        ],
+                        "comments": [
+                            {
+                                "style": "Lilly is a very visual learner and particularly enjoys drawing and watching videos. She is good at grasping concepts related to shapes and has picked up math very quickly.",
+                                "behavior": "Lilly tends to be very quiet and reserved. She is generally well-behaved. However, she gets cranky very easily when tired.",
+                                "strengths": "As mentioned above, Lilly is quick to pick up on math concepts, in particular geometry. She seems to have a good understanding of the logic involved in these sorts of tasks and understands them very quickly.",
+                                "weaknesses": "Lilly gets frustrated when she is not able to understand things, particularly in science. She has troubles with acids and bases"
+                            }
+                        ]
+                    }
+                ],
+                "1": [
+                    {
+                        "grades": [
+                            {
+                                "math": [
+                                    {
+                                        "addition": 98,
+                                        "subtraction": 90,
+                                        "division": 93,
+                                        "multiplication": 87
+                                    }
+                                ],
+                                "history": [
+                                    {
+                                        "pledge": 93,
+                                        "constitution": 87,
+                                        "war": 95,
+                                        "law": 90
+                                    }
+                                ],
+                                "science": [
+                                    {
+                                        "acids": 87,
+                                        "entropy": 100,
+                                        "elements": 93,
+                                        "animals": 90
+                                    }
+                                ],
+                                "english": [
+                                    {
+                                        "spelling": 90,
+                                        "grammar": 93,
+                                        "punctuation": 95,
+                                        "sentences": 90
+                                    }
+                                ]
+                            }
+                        ],
+                        "comments": [
+                            {
+                                "style": "Lilly is a very visual learner and particularly enjoys drawing and watching videos. She is good at grasping concepts related to shapes and has picked up math very quickly.",
+                                "behavior": "Lilly tends to be very quiet and reserved. She is generally well-behaved. However, she gets cranky very easily when tired.",
+                                "strengths": "As mentioned above, Lilly is quick to pick up on math concepts, in particular geometry. She seems to have a good understanding of the logic involved in these sorts of tasks and understands them very quickly.",
+                                "weaknesses": "Lilly gets frustrated when she is not able to understand things, particularly in science. She has troubles with acids and bases"
+                            }
+                        ]
+                    }
+                ],
+                "2": [
+                    {
+                        "grades": [
+                            {
+                                "math": [
+                                    {
+                                        "addition": 98,
+                                        "subtraction": 90,
+                                        "division": 93,
+                                        "multiplication": 87
+                                    }
+                                ],
+                                "history": [
+                                    {
+                                        "pledge": 93,
+                                        "constitution": 87,
+                                        "war": 95,
+                                        "law": 90
+                                    }
+                                ],
+                                "science": [
+                                    {
+                                        "acids": 87,
+                                        "entropy": 100,
+                                        "elements": 93,
+                                        "animals": 90
+                                    }
+                                ],
+                                "english": [
+                                    {
+                                        "spelling": 90,
+                                        "grammar": 93,
+                                        "punctuation": 95,
+                                        "sentences": 90
+                                    }
+                                ]
+                            }
+                        ],
+                        "comments": [
+                            {
+                                "style": "Lilly is a very visual learner and particularly enjoys drawing and watching videos. She is good at grasping concepts related to shapes and has picked up math very quickly.",
+                                "behavior": "Lilly tends to be very quiet and reserved. She is generally well-behaved. However, she gets cranky very easily when tired.",
+                                "strengths": "As mentioned above, Lilly is quick to pick up on math concepts, in particular geometry. She seems to have a good understanding of the logic involved in these sorts of tasks and understands them very quickly.",
+                                "weaknesses": "Lilly gets frustrated when she is not able to understand things, particularly in science. She has troubles with acids and bases"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]
