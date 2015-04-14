@@ -72,7 +72,7 @@
 	  right: 2vw;
 	  bottom: 3vh;
 	  position: fixed;
-	  font-size: 20px;
+	  font-size: 12px;
 	  display: show;
 	  background-color: #FFFFEC;
 	  padding-left: 1vw; 
@@ -93,7 +93,7 @@
 	<script src="libs/d3/d3.min.js" type="text/javascript"></script>
 
 	<script>
-
+	
 	var blob;
 	
 	var id = 0;
@@ -162,6 +162,8 @@
 			
 		});
 	
+		return;
+	
 	}
 
 	function updateComments() {
@@ -185,7 +187,35 @@
 			}
 		}
 		document.getElementById("comments").innerHTML = commentText;
+		return;
 	}
+	
+	function newComment() {
+		var type;
+		for (i = 0; i < infoTypes.length; i++) {
+			if (document.getElementById("n" + infoTypes[i]).checked) {
+				type = infoTypes[i];
+			}
+		}
+
+		var obj = document.getElementById("newCommentText")
+        var text = obj.value;
+		if (text == "")
+		  return
+	    obj.value = "";
+
+		blob[id]["year"][0][yearInd[years-1]][0]["comments"][0][type] = text;	
+
+		saveJson(blob, "data/studentData.json");
+		updateComments();
+		
+		return;
+	}
+
+	// convert the array comments to JSON and save
+    function saveJson(object, filename) {
+		console.log("write the saveJson function already gosh");
+    }
 	
 	loadJson();
 	
@@ -222,6 +252,16 @@
 			<input type="checkbox" name="area" value="weaknesses" id="weaknesses" onclick="updateComments()" checked>Weaknesses<br />
 		</div>
 		<div id = "newcomment">
+			<form>
+			New Comment:<br>
+			<input type="radio" name="newcomment" value="nstyle" id="nstyle" checked> Style
+			<input type="radio" name="newcomment" value="nbehavior" id="nbehavior"> Behavior
+			<input type="radio" name="newComment" value="nstrengths" id="nstrengths"> Strengths
+			<input type="radio" name="newcomment" value="nweaknesses" id="nweaknesses"> Weaknesses
+			<br>
+			<input type="text" name="text" style="width:25vw" id="newCommentText">
+			<br><br>
+			<input type="button" onclick="newComment()" value="Post">
 		</div>
 	</div>
 </body>
