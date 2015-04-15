@@ -96,6 +96,15 @@
 		font-size: 20px;
 	}
 
+	.arrow-down {
+	width: 0; 
+	height: 0; 
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-top: 10px solid black;
+	float:left;
+	}
+
 	body {
 		font-family: Helvetica, sans-serif;
 	}
@@ -191,23 +200,31 @@
 			</div>
 			<div id = "select">
 				<form id="weaknessSelector">
-					<input type="checkbox" name="subject" value="math">Math<br />
-					<input type="checkbox" name="subject" value="history">History<br />
-					<input type="checkbox" name="subject" value="science">Science<br />
-					<input type="checkbox" name="subject" value="english">English<br />
+					<input type="checkbox" name="subject" value="math">Math<br/>
+					<input type="checkbox" name="subject" value="history">History<br/>
+					<input type="checkbox" name="subject" value="science">Science<br/>
+					<input type="checkbox" name="subject" value="english">English<br/>
 				</form>
 			</div>
 			<div id = "grades">
-				<p class = "header" onclick="toggleMath();">Math</p>
+				<div style="margin-top:20px;float:left;margin-left:45%" class = "header">Math</div>
+				<div style="margin-top:20px" class="arrow-down" onclick="toggleMath();"></div>
+				<br/><br/>
 				<p id = "math" style="display: none">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus leo ante, et sollicitudin nulla eleifend nec. Vivamus eu convallis enim. Praesent eros sapien, fermentum in mollis et, maximus quis metus. Ut libero purus, semper id massa vitae, imperdiet bibendum nisi. Fusce a justo at quam posuere euismod ac non tellus. In hac habitasse platea dictumst. Nullam sollicitudin enim nunc, a placerat nisi blandit vestibulum. Pellentesque pretium quam malesuada quam feugiat pretium. Praesent placerat purus quis ipsum elementum, at hendrerit neque rutrum. Aenean purus lorem, bibendum sed feugiat vitae, aliquet vel mauris. Curabitur nec nulla ac mi sagittis suscipit quis non urna.</p>
-				<p class = "header" onclick="toggleHistory();">History</p>
+				<div style="margin-top:30px;float:left;margin-left:45%" class = "header">History</div>
+				<div style="margin-top:30px" class="arrow-down" onclick="toggleHistory();"></div>
+				<br/><br/><br/>
 				<p id = "history" style="display: none">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus leo ante, et sollicitudin nulla eleifend nec. Vivamus eu convallis enim. Praesent eros sapien, fermentum in mollis et, maximus quis metus. Ut libero purus, semper id massa vitae, imperdiet bibendum nisi. Fusce a justo at quam posuere euismod ac non tellus. In hac habitasse platea dictumst. Nullam sollicitudin enim nunc, a placerat nisi blandit vestibulum. Pellentesque pretium quam malesuada quam feugiat pretium. Praesent placerat purus quis ipsum elementum, at hendrerit neque rutrum. Aenean purus lorem, bibendum sed feugiat vitae, aliquet vel mauris. Curabitur nec nulla ac mi sagittis suscipit quis non urna.</p>
-				<p class = "header" onclick="toggleScience();">Science</p>
+				<div style="margin-top:30px;float:left;margin-left:45%" class = "header">Science</div>
+				<div style="margin-top:30px" class="arrow-down" onclick="toggleScience();"></div>
+				<br/><br/><br/>
 				<p id = "science" style="display: none">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus leo ante, et sollicitudin nulla eleifend nec. Vivamus eu convallis enim. Praesent eros sapien, fermentum in mollis et, maximus quis metus. Ut libero purus, semper id massa vitae, imperdiet bibendum nisi. Fusce a justo at quam posuere euismod ac non tellus. In hac habitasse platea dictumst. Nullam sollicitudin enim nunc, a placerat nisi blandit vestibulum. Pellentesque pretium quam malesuada quam feugiat pretium. Praesent placerat purus quis ipsum elementum, at hendrerit neque rutrum. Aenean purus lorem, bibendum sed feugiat vitae, aliquet vel mauris. Curabitur nec nulla ac mi sagittis suscipit quis non urna.</p>
-				<p class = "header" onclick="toggleEnglish();">English</p>
+				<div style="margin-top:30px;float:left;margin-left:45%" class = "header">English</div>
+				<div style="margin-top:30px" class="arrow-down" onclick="toggleEnglish();"></div>
+				<br/><br/><br/>
 				<p id = "english" style="display: block">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus leo ante, et sollicitudin nulla eleifend nec. Vivamus eu convallis enim. Praesent eros sapien, fermentum in mollis et, maximus quis metus. Ut libero purus, semper id massa vitae, imperdiet bibendum nisi. Fusce a justo at quam posuere euismod ac non tellus. In hac habitasse platea dictumst. Nullam sollicitudin enim nunc, a placerat nisi blandit vestibulum. Pellentesque pretium quam malesuada quam feugiat pretium. Praesent placerat purus quis ipsum elementum, at hendrerit neque rutrum. Aenean purus lorem, bibendum sed feugiat vitae, aliquet vel mauris. Curabitur nec nulla ac mi sagittis suscipit quis non urna.</p>
-
-				<a type="btn btn-xs" href="change.html">View analysis</a>
+				<br/><br/>
+				<a style="margin-left:20px"type="btn btn-xs" href="change.html">View analysis</a>
 			</div>
 			<div id = "graph">
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus gravida euismod tellus, maximus efficitur turpis tempus vel. Ut fringilla odio et lectus cursus viverra. Ut volutpat tempus turpis, sed aliquam dolor vulputate sit amet. Nam auctor neque vitae risus venenatis commodo. Etiam lacinia turpis tincidunt semper sodales. Pellentesque quis sollicitudin massa. Proin tincidunt elit nisl, sed congue nibh convallis id. Fusce vitae mauris vel arcu accumsan gravida. Pellentesque at ultricies ante.</p>
