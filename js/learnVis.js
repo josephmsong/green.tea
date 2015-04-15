@@ -77,9 +77,9 @@ LearningGraphs.prototype.updateVis = function(){
     var that = this;
 
     // ...update scales
-    this.x.domain([0,1,2]);
+    this.x.domain([0,1, 2]);
 
-    this.y.domain(d3.extent(this.displayData.learning, function(d, i) {return d; }));
+    this.y.domain(d3.extent(this.displayData, function(d, i) {return d;}));
 
     this.yAxis.tickValues([0, 1, 2]);
 
@@ -109,7 +109,7 @@ LearningGraphs.prototype.updateVis = function(){
 
     var groups = this.svg.append("g")
                 .selectAll("g.row")
-                .data(this.displayData.learning)
+                .data(this.displayData)
                 .enter()
                 .append("g")
                 .attr("class", "row");
@@ -117,9 +117,9 @@ LearningGraphs.prototype.updateVis = function(){
     var bars = groups
                 .append("rect")
                 .attr("width", function (d, i) {return 35;})
-                .attr("height", function (d){return that.height - that.y(d);})
+                .attr("height", function (d){return that.y(d);})
                 .attr("x", function (d, i) {return that.x(i);})
-                .attr("y", function (d,i) {return that.y(d);})
+                .attr("y", function (d,i) {return that.height - that.y(d);})
                 .attr("class", "learnBars")
                 .attr("fill", colorScale)
                 .append("text")
