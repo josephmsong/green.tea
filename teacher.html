@@ -97,73 +97,82 @@
 	var blob;
 	
 	var id = 0;
-	var name;
+	var name, teacher;
 	var comments = [];
 	var years = 0; 
 	
 	var infoTypes = ["style", "behavior", "strengths", "weaknesses"];
 
 	function loadJson() {	
+		if (typeof(Storage) == "undefined") {
+            alert("Local storage is not supported by this browser.");
+		}
+		else if (localStorage.length > 0) {
+            blob = JSON.parse(localStorage[0]);
+			loadComments();
+			}
+		else {	
+			d3.json("data/studentData.json", function(error, data) {
+				blob = data;
+				loadComments();
+			});
+		}
+	}
 
-		d3.json("data/studentData.json", function(error, data) {
-			blob = data;
-			student = data[id];
-			name = student["name"];
-			//comments = student["year"][0]["0"][0]["comments"][0];
-			yearInd = Object.keys(student["year"][0]);
-			years = yearInd.length;
+	function loadComments() {
+		student = blob[id];
+		name = student["name"];
+		yearInd = Object.keys(student["year"]);
+		years = yearInd.length;
+		teacher = blob[id]["year"][yearInd[years-1]]["teacher"];
 
-			for (i = years-1; i >= 0; i--) {
-				//console.log(yearInd[i], student["year"][0][yearInd[i]][0]["teacher"]);
-				//console.log(student["year"][0][yearInd[i]][0]["comments"][0]);
+		for (i = years-1; i >= 0; i--) {
+			//console.log(yearInd[i], student["year"][0][yearInd[i]][0]["teacher"]);
+			//console.log(student["year"][0][yearInd[i]][0]["comments"][0]);
 
-				currentTeacher = student["year"][0][yearInd[i]][0]["teacher"];
+			currentTeacher = student["year"][yearInd[i]]["teacher"];
+			
+			for (j = 0; j < infoTypes.length; j++) {
+				comments.push("<b>" + infoTypes[j] + ":</b> " + student["year"][yearInd[i]]["comments"][infoTypes[j]] + " - " + currentTeacher);
+			}
+		}
 				
-				for (j = 0; j < infoTypes.length; j++) {
-					comments.push("<b>" + infoTypes[j] + ":</b> " + student["year"][0][yearInd[i]][0]["comments"][0][infoTypes[j]] + " - " + currentTeacher);
-				}
-			}
-			
-//			console.log(id, name, years);
-//			console.log(comments);
+	//	console.log(id, name, years);
+	//	console.log(comments);
 
-			// change grades selected based on information available
-			var checkboxes = ""
-			for (i = 0; i < years; i++) {
-				num = i + 1;
-				checkboxes += "<input type=\"checkbox\" name=\"grade\" value=\"grade" + num + "\" id=\"grade" + num + "\" onclick=\"updateComments()\" checked >Grade " + num + "<br />";
-			}
-			document.getElementById("grade").innerHTML = checkboxes;
+		// change grades selected based on information available
+		var checkboxes = ""
+		for (i = 0; i < years; i++) {
+			num = i + 1;
+			checkboxes += "<input type=\"checkbox\" name=\"grade\" value=\"grade" + num + "\" id=\"grade" + num + "\" onclick=\"updateComments()\" checked >Grade " + num + "<br />";
+		}
+		document.getElementById("grade").innerHTML = checkboxes;
 
+		// load comments
 
-			// load comments
+		// use checkboxes to build filters, boolean arrays of length years or 4
+		var displayYears = [];
+		var displayTypes = [];
 
-			// use checkboxes to build filters, boolean arrays of length years or 4
-			var displayYears = [];
-			var displayTypes = [];
-
-			for (i = 0; i < years; i++){
-				displayYears.push(document.getElementById("grade" + (i+1)).checked);
-			}
-			
-			for (i = 0; i < 4; i++){
-				displayTypes.push(document.getElementById(infoTypes[i]).checked);
-			}			
-			
-			var commentText = "";
-			for (i = 0; i < comments.length; i++) {
-				commentText += "<p>" + comments[i] + "</p>";
-			}
-			document.getElementById("comments").innerHTML = commentText;
-			
-			// update header w/ student name
-			var text = name + "<br> Teacher Comments";
-			document.getElementById("header").innerHTML = text;
-			
-		});
-	
+		for (i = 0; i < years; i++){
+			displayYears.push(document.getElementById("grade" + (i+1)).checked);
+		}
+				
+		for (i = 0; i < 4; i++){
+			displayTypes.push(document.getElementById(infoTypes[i]).checked);
+		}			
+		
+		var commentText = "";
+		for (i = 0; i < comments.length; i++) {
+			commentText += "<p>" + comments[i] + "</p>";
+		}
+		document.getElementById("comments").innerHTML = commentText;
+				
+		// update header w/ student name
+		var text = name + "<br> Teacher Comments";
+		document.getElementById("header").innerHTML = text;				
+		
 		return;
-	
 	}
 
 	function updateComments() {
@@ -190,11 +199,11 @@
 		return;
 	}
 	
-	function newComment() {
+	function comment() {
 		var type;
 		for (i = 0; i < infoTypes.length; i++) {
 			if (document.getElementById("n" + infoTypes[i]).checked) {
-				type = infoTypes[i];
+				type = i;
 			}
 		}
 
@@ -204,8 +213,8 @@
 		  return
 	    obj.value = "";
 
-		blob[id]["year"][0][yearInd[years-1]][0]["comments"][0][type] = text;	
-
+		comments[type] = "<b>" + infoTypes[type] + ":</b> " + text + " - " + teacher;
+		blob[id]["year"][yearInd[years-1]]["comments"][infoTypes[type]] = text;
 		saveJson(blob, "data/studentData.json");
 		updateComments();
 		
@@ -213,11 +222,21 @@
 	}
 
 	// convert the array comments to JSON and save
+	// note: this is currently using local storage, not actually accessing the JSON
     function saveJson(object, filename) {
 		console.log("write the saveJson function already gosh");
+		
+		//local storage
+        if (typeof(Storage) != "undefined") {
+            localStorage.clear();
+            // get all the comments for this student
+			localStorage.setItem(0, JSON.stringify(blob));
+//			console.log("blob: ", blob[id]["year"][0][yearInd[years-1]][0]["comments"][0]);
+        }
+		else {
+            alert("Local storage is not supported by this browser.");
+        }		
     }
-	
-	loadJson();
 	
 	</script>
 </head>
@@ -261,8 +280,9 @@
 			<br>
 			<input type="text" name="text" style="width:25vw" id="newCommentText">
 			<br><br>
-			<input type="button" onclick="newComment()" value="Post">
+			<input type="button" onclick="comment()" value="Post">
 		</div>
 	</div>
+	<script>	loadJson();</script>
 </body>
 </html>
