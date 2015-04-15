@@ -9,19 +9,19 @@
 	  padding-top: 1vh;
 	  padding-left: 1vw;
 	  padding-right: 1vw;
-	  padding-bottom: 1vh;
+	  padding-bottom: 0.5vh;
 	  display: inline-block;
-	  background-color: #DEDEDE;
+	  background-color: #d3d3d3;
 	}
 	#header {
 	  text-align: center;
 	  width: 97vw;
-	  height: 10vh;
+	  height: 6vh;
 	  left: 1vw;
 	  position: absolute;
 	  display: inline-block;
-	  border-style: solid;
-	  border-width: 1px;
+/*	  border-style: solid;
+	  border-width: 1px;*/
 	  background-color: #ECECEC;
 	}
 	#back {
@@ -31,13 +31,13 @@
 	#time {
 	  text-align: center;
 	  width: 96vw;
-	  height: 10vh;
+	  height: 4vh;
 	  left: 2vw;
 	  top: 14vh;
 	  position: fixed;
 	  display: inline-block;
-	  border-style: solid;
-	  border-width: 1px;
+/*	  border-style: solid;
+	  border-width: 1px;*/
 	  background-color: #ECECEC;
 	}
 	#subject {
@@ -48,8 +48,8 @@
 	  top: 26vh;
 	  position: fixed;
 	  display: inline-block;
-	  border-style: solid;
-	  border-width: 1px;
+/*	  border-style: solid;
+	  border-width: 1px;*/
 	  background-color: #ECECEC;
 	}
 	#graph {
@@ -60,13 +60,18 @@
 	  top: 26vh;
 	  position: fixed;
 	  display: inline-block;
-	  border-style: solid;
-	  border-width: 1px;
+/*	  border-style: solid;
+	  border-width: 1px;*/
 	  background-color: #ECECEC;
 	}
 	.header {
 		text-align: center;
 		font-size: 20px;
+	}
+
+	body{
+		font-family: Helvetica, sans-serif;
+		background-color: #d3d3d3
 	}
 	</style>
 
@@ -81,14 +86,16 @@
 
 <body>
 	<div id = "dashboard">
-		<div id = "header">
-		JOHN DOE <br />
+		<div id = "header" style="padding-top:14px">
+		JOSEPH SONG <br />
 		Performance Over Time <br />
 		</div>
-		<div id = "back">
-			<a href="student.html">Back</button>
+
+		<div id = "back" style="padding-left:5px; padding-top:5px">
+			<a href="grades.html">Back</a>
 		</div>
-		<div id="time">
+
+		<div id="time" style="padding-top:10px">
 			<form id="timeSelector">
 				<input type="checkbox" name="grade" value="total">All
 				<input type="checkbox" name="grade" value="one">Grade 1
@@ -96,16 +103,16 @@
 				<input type="checkbox" name="grade" value="three">Grade 3
 			</form>
 		</div>
-		<div id="subject">
-			<form id="subjectSelector">
-				<input type="checkbox" name="subject" value="allsub">All<br />
-				<input type="checkbox" name="subject" value="math">Math<br />
-				<input type="checkbox" name="subject" value="history">History<br />
-				<input type="checkbox" name="subject" value="science">Science<br />
-				<input type="checkbox" name="subject" value="english">English<br />
-			</form>
+		<div id="subject" style="padding-top:10px; float:left"	>
+				<form id="subjectSelector">
+					<input type="checkbox" name="subject" value="math" style="float:left"><label style="float:left">Math</label><br /><br />
+					<input type="checkbox" name="subject" value="history" style="float:left"><label style="float:left">History</label><br /><br />
+					<input type="checkbox" name="subject" value="science" style="float:left"><label style="float:left">Science</label><br /><br />
+					<input type="checkbox" name="subject" value="english" style="float:left"><label style="float:left">English</label><br /><br />
+				</form>
 		</div>
 		<div id="graph">
+			Graph goes here.
 		</div>
 	</div>
 </body>

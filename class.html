@@ -1,7 +1,19 @@
 <!DOCTYPE html>
 <html>
 	<head>
+
+		<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+		<script src="libs/d3/d3.min.js" charset="utf-8"></script>
+	    <!--<script src="libs/jquery/jquery-2.1.1.min.js" charset="utf-8"></script>-->
+	    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+	    <script src="libs/bootstrap/js/bootstrap.min.js" charset="utf-8"></script>
+	    <script src="http://d3js.org/queue.v1.min.js"></script>
+
 		<style>
+		body{
+			font-family:Helvetica, sans-serif;
+			background-color: #d3d3d3
+		}
 		.container {
 			width: 100vw; 
 		    height: 56.25vw; /* height:width ratio = 9/16 = .5625  */
@@ -62,12 +74,15 @@
 			margin-left: 30px;
 		}
 		</style>
+
+		<script src = "js/learnVis.js"></script>
 	</head>
+
 	<div class = "container">
 		<label style="display:block;text-align:center;margin:auto;font-size:300%;font-weight:bold">RIVET</label>
 		<label style="display:block;text-align:center;margin:auto;font-size:125%;font-weight:bold">Mrs. Smith</label>
 		<div class="leftnav" style="height:30px">
-			<div style="margin-left:5px;margin-top:8px;color:lightgray">Search for a student...</div>
+			<div style="margin-left:5px;margin-top:8px;color:black">Search for a student...</div>
 		</div>
 		<br/><br/><br/>
 		<div class="leftnav" style="height:550px">
@@ -75,36 +90,36 @@
 				<div class="student"><img src="propic.jpeg" style="height:80px;
 				width:90px"></img></div>
 				<label class="student">Student 1</label>
-				<a href="" style="float:right;color:red;margin-top:60px;margin-right:5px;font-size:80%">View Profile</a>
+				<a href="student.html" style="float:right;color:red;margin-top:60px;margin-right:5px;font-size:80%">View Profile</a>
 			</div>
 			<div class="student">
 				<div class="student"><img src="propic.jpeg" style="height:80px;
 				width:90px"></img></div>
-				<label class="student">Student 1</label>
-				<a href="" style="float:right;color:red;margin-top:60px;margin-right:5px;font-size:80%">View Profile</a>
+				<label class="student">Student 2</label>
+				<a href="student.html" style="float:right;color:red;margin-top:60px;margin-right:5px;font-size:80%">View Profile</a>
 			</div>
 			<div class="student">
 				<div class="student"><img src="propic.jpeg" style="height:80px;
 				width:90px"></img></div>
-				<label class="student">Student 1</label>
-				<a href="" style="float:right;color:red;margin-top:60px;margin-right:5px;font-size:80%">View Profile</a>
+				<label class="student">Student 3</label>
+				<a href="student.html" style="float:right;color:red;margin-top:60px;margin-right:5px;font-size:80%">View Profile</a>
 			</div>
 			<div class="student">
 				<div class="student"><img src="propic.jpeg" style="height:80px;
 				width:90px"></img></div>
-				<label class="student">Student 1</label>
-				<a href="" style="float:right;color:red;margin-top:60px;margin-right:5px;font-size:80%">View Profile</a>
+				<label class="student">Student 4</label>
+				<a href="student.html" style="float:right;color:red;margin-top:60px;margin-right:5px;font-size:80%">View Profile</a>
 			</div>
 			<div class="student">
 				<div class="student"><img src="propic.jpeg" style="height:80px;
 				width:90px"></img></div>
-				<label class="student">Student 1</label>
-				<a href="" style="float:right;color:red;margin-top:60px;margin-right:5px;font-size:80%">View Profile</a>
+				<label class="student">Student 5</label>
+				<a href="student.html" style="float:right;color:red;margin-top:60px;margin-right:5px;font-size:80%">View Profile</a>
 			</div>
 		</div>
 		<div class="middle">
 			<label style="display:block;margin:auto;font-size:125%;font-weight:bold">Styles of Learning</label>
-			<div class="graph">
+			<div class="graph" id="learningGraphs">
 			</div>
 		</div>
 		<div class="right">
@@ -135,5 +150,70 @@
 			<input type="checkbox" class="choice">Computer</input>
 		</div>
 	</div>
+
+    <script>
+    	// make sure that the page is fully loaded before starting
+        $(function(){
+
+            // variables keeping global knowledge of the data
+            var studentData = [];
+
+
+            // call this function after data is loaded, reformatted and bound to the variables
+            var initVis = function(){
+
+                // var MyEventHandler = new Object();
+
+                // instantiate the objects for visualization
+                var learning_graphs = new LearningGraphs(d3.select("#learningGraphs"), studentData);
+                // var age_vis = new AgeVis(d3.select("#ageVis"), studentData, metaData);
+
+                // bind the event handler
+
+                  // $(MyEventHandler).bind("selectionChanged", function(event, startDate, endDate){
+
+                  //     prio_vis.onSelectionChange(startDate, endDate);
+                  //     age_vis.onSelectionChange(startDate, endDate);
+                  // });
+            }
+
+            // call this function after both files are loaded -- error should be "null" if no error
+            var dataLoaded = function (error, _studentData) {
+
+                if (!error) {
+
+                	// learningData will be used to compile the information for the class's learning styles
+                	// order is visual, auditory, kinesthetic
+                	var learningData = [0, 0, 0];
+
+                	// total the values
+                	 _studentData.map(function(d){
+                	 	if(d.learning == "visual")
+                	 		learningData[0]++;
+                	 	else if (d.learning == "auditory")
+                	 		learningData[1]++;
+                	 	else
+                	 		learningData[2]++;
+
+                	})
+
+                	// add the learning data to the overall dataframe
+                	studentData.learning = learningData;
+
+                    initVis();
+                }
+            }
+
+            var startLoad = function(){
+
+                //load data here and call "dataLoaded" afterwards
+                queue()
+                    .defer(d3.json, 'data/studentData.json')
+                    .await(dataLoaded);
+            }
+
+            startLoad();
+        })
+    </script>
 
 <html>
