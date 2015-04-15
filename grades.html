@@ -135,15 +135,19 @@
 
 	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<script src = "js/studentVis.js"></script>
 
 	<script>
 
 	var mathShow = false, histShow = false, sciShow = false, engShow = false;
 	var string = "Joseph Song";
 	var student;
+	var graphVis;
 
 	d3.json("data/studentData.json", function(error, data) {
-		console.log(data)
+
+		console.log(data);
+
 		if (string = "Joseph") {
 			student = data[0]
 		}
@@ -153,7 +157,9 @@
 		else {
 			student = data[2]
 		}
-		console.log(student)
+
+		graphVis = new ClassGraphs(d3.select("#graph"), student);
+
 		var index = student.year.length-1;
 		var keys = Object.keys(student.year[index].grades)
 		var english = Object.keys(student.year[index].grades.english)
@@ -300,6 +306,10 @@
 
 	})
 
+	var updateVis = function(selectedIndex){
+		graphVis.onSelectionChange(selectedIndex);
+	};
+
 	function toggleMath() {
 		console.log(mathShow);
 		if (mathShow) {
@@ -363,10 +373,10 @@
 		<br>
 		<label class="name"> </label><br />
 		Grade Report <br />
-		<select>
-		  <option value="three">Grade 3</option>
-		  <option value="two">Grade 2</option>
-		  <option value="one">Grade 1</option>
+		<select onchange="updateVis(this.selectedIndex)">
+		  <option value="3" id="gradeSelect">Grade 3</option>
+		  <option value="2" id="gradeSelect">Grade 2</option>
+		  <option value="1" id="gradeSelect">Grade 1</option>
 		</select>
 		</div>
 		<div id = "back">
@@ -428,11 +438,6 @@
 			</div>
 
 			<div id = "graph" style="top:52%; width:55.2%">
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus gravida euismod tellus, maximus efficitur turpis tempus vel. Ut fringilla odio et lectus cursus viverra. Ut volutpat tempus turpis, sed aliquam dolor vulputate sit amet. Nam auctor neque vitae risus venenatis commodo. Etiam lacinia turpis tincidunt semper sodales. Pellentesque quis sollicitudin massa. Proin tincidunt elit nisl, sed congue nibh convallis id. Fusce vitae mauris vel arcu accumsan gravida. Pellentesque at ultricies ante.</p>
-
-				<p>Donec vitae tempus lectus. Donec semper tempor turpis non tincidunt. In sed libero eu diam euismod vulputate vitae ac nibh. Fusce blandit dui in elit porta aliquet. Nunc semper interdum sapien. Nunc condimentum felis non lacus porttitor, eget consequat massa fringilla. Ut facilisis lobortis tristique. In non pulvinar massa. Phasellus eu maximus metus.</p>
-
-				<p>Nulla volutpat convallis nibh, ac volutpat libero molestie et. Donec sed ligula purus. Integer tincidunt semper eros. Etiam justo nibh, ullamcorper eu eros eu, iaculis faucibus nisi. Sed eu bibendum ex, vel tincidunt quam. Nam faucibus mattis orci, id lobortis est feugiat vel. Ut hendrerit risus auctor sapien facilisis lacinia. Suspendisse potenti. Donec condimentum pellentesque enim a rutrum.</p>
 			</div>
 		</div>
 	</div>

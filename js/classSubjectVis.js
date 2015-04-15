@@ -1,10 +1,10 @@
 // D3 to show the graphs for the class page// D3 to show the graphs for the class page
 
-ClassGraphs = function(_parentElement, _data){
+ClassGraphs = function(_parentElement, _data, _allData){
     this.parentElement = _parentElement;
     this.data = _data;
     this.displayData = [];
-    this.labelNames = ["english", "history", "math", "science"]
+    this.labelNames = ["math", "history", "science", "english"]
 
     // define all "constants" here
     this.margin = {top: 20, right: 20, bottom: 40, left: 50},
@@ -126,14 +126,23 @@ ClassGraphs.prototype.updateVis = function(){
 }
 
 /**
+* wrangles data when a subject is selected in order to show the more detailed assignment data
+*/
+ClassGraphs.prototype.wrangleData = function (subjectSelected){
+
+
+}
+
+/**
  * Gets called by event handler and should create new aggregated data
  * aggregation is done by the function "aggregate(filter)". Filter has to
  * be defined here.
  * @param selection
  */
-ClassGraphs.prototype.onSelectionChange= function (selectionStart, selectionEnd){
+ClassGraphs.prototype.onSelectionChange= function (subjectSelected){
 
-    // this.wrangleData(function(d){return d.time >= selectionStart && d.time <= selectionEnd})
+    this.wrangleData(subjectSelected)
+    console.log("ay")
 
     this.updateVis();
 

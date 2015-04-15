@@ -103,34 +103,34 @@
                     {
                         "math": 
                             {
-                                "addition": 88,
+                                "addition": 92,
                                 "subtraction": 90,
-                                "division": 83,
-                                "multiplication": 87
+                                "division": 95,
+                                "multiplication": 99
                             }
                         ,
                         "history": 
                             {
                                 "pledge": 93,
                                 "constitution": 87,
-                                "war": 95,
-                                "law": 90
+                                "war": 90,
+                                "law": 92
                             }
                         ,
                         "science": 
                             {
-                                "acids": 87,
+                                "acids": 99,
                                 "entropy": 100,
                                 "elements": 93,
-                                "animals": 90
+                                "animals": 85
                             }
                         ,
                         "english": 
                             {
-                                "spelling": 90,
-                                "grammar": 93,
-                                "punctuation": 95,
-                                "sentences": 90
+                                "spelling": 92,
+                                "grammar": 95,
+                                "punctuation": 96,
+                                "sentences": 94
                             }
                         
                     }
