@@ -122,19 +122,18 @@
 	function loadComments() {
 		student = blob[id];
 		name = student["name"];
-		//comments = student["year"][0]["0"][0]["comments"][0];
-		yearInd = Object.keys(student["year"][0]);
+		yearInd = Object.keys(student["year"]);
 		years = yearInd.length;
-		teacher = blob[id]["year"][0][yearInd[years-1]][0]["teacher"];
+		teacher = blob[id]["year"][yearInd[years-1]]["teacher"];
 
 		for (i = years-1; i >= 0; i--) {
 			//console.log(yearInd[i], student["year"][0][yearInd[i]][0]["teacher"]);
 			//console.log(student["year"][0][yearInd[i]][0]["comments"][0]);
 
-			currentTeacher = student["year"][0][yearInd[i]][0]["teacher"];
+			currentTeacher = student["year"][yearInd[i]]["teacher"];
 			
 			for (j = 0; j < infoTypes.length; j++) {
-				comments.push("<b>" + infoTypes[j] + ":</b> " + student["year"][0][yearInd[i]][0]["comments"][0][infoTypes[j]] + " - " + currentTeacher);
+				comments.push("<b>" + infoTypes[j] + ":</b> " + student["year"][yearInd[i]]["comments"][infoTypes[j]] + " - " + currentTeacher);
 			}
 		}
 				
@@ -215,7 +214,7 @@
 	    obj.value = "";
 
 		comments[type] = "<b>" + infoTypes[type] + ":</b> " + text + " - " + teacher;
-		blob[id]["year"][0][yearInd[years-1]][0]["comments"][0][infoTypes[type]] = text;
+		blob[id]["year"][yearInd[years-1]]["comments"][infoTypes[type]] = text;
 		saveJson(blob, "data/studentData.json");
 		updateComments();
 		
