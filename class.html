@@ -76,6 +76,7 @@
 		</style>
 
 		<script src = "js/learnVis.js"></script>
+		<script src = "js/classSubjectVis.js"></script>
 	</head>
 
 	<div class = "container">
@@ -137,83 +138,146 @@
 		<br/>
 		<div class="bottom">
 			<label style="display:block;margin:auto;font-size:125%;font-weight:bold">Classroom Performance</label>
-			<div class="botgraph">
+			<div class="botgraph" id="subjectGraphs">
 			</div>
 		</div>
 		<br/>
-		<div class="choices">
-			<input type="checkbox" class="choice">Math</input>
-			<input type="checkbox" class="choice">English</input>
-			<input type="checkbox" class="choice">History</input>
-			<input type="checkbox" class="choice">Science</input>
-			<input type="checkbox" class="choice">Art</input>
-			<input type="checkbox" class="choice">Computer</input>
-		</div>
+		<form>
+			<div class="choices">
+				<input type="radio" class="choice" name="subject" onchange='passUpdate("All")' checked>All</input>
+				<input type="radio" class="choice" name="subject" onchange='passUpdate("English")'>English</input>
+				<input type="radio" class="choice" name="subject" onchange='passUpdate("History")'>History</input>
+				<input type="radio" class="choice" name="subject" onchange='passUpdate("Math")'>Math</input>
+				<input type="radio" class="choice" name="subject" onchange='passUpdate("Science")'>Science</input>
+			</div>
+		</form>
 	</div>
 
     <script>
-    	// make sure that the page is fully loaded before starting
-        $(function(){
 
-            // variables keeping global knowledge of the data
-            var studentData = [];
+        // variables keeping global knowledge of the data
+        var studentData = [];
+        var subjectData = [];
+        var allData = [];
+        var learning_graphs;
+        var subject_graphs;
+
+        // call this function after data is loaded, reformatted and bound to the variables
+        var initVis = function(){
+
+            // var MyEventHandler = new Object();
+
+            // instantiate the objects for visualization
+            learning_graphs = new LearningGraphs(d3.select("#learningGraphs"), studentData);
+            subject_graphs = new ClassGraphs(d3.select('#subjectGraphs'), subjectData, allData);
+
+            // bind the event handler
+
+              // $(MyEventHandler).bind("selectionChanged", function(event, startDate, endDate){
+
+              //     prio_vis.onSelectionChange(startDate, endDate);
+              //     age_vis.onSelectionChange(startDate, endDate);
+              // });
+        }
+
+        // call this function after both files are loaded -- error should be "null" if no error
+        var dataLoaded = function (error, _studentData) {
+
+            if (!error) {
+
+            	// save the original data
+            	allData = _studentData;
+
+            	// learningData will be used to compile the information for the class's learning styles
+            	// order is visual, auditory, kinesthetic
+            	var learningData = [0, 0, 0];
+
+            	// total the values
+            	 _studentData.map(function (d){
+            	 	if(d.learning == "visual")
+            	 		learningData[0]++;
+            	 	else if (d.learning == "auditory")
+            	 		learningData[1]++;
+            	 	else
+            	 		learningData[2]++;
+
+            	})
+
+            	// add the learning data to the overall dataframe
+            	studentData = learningData;
+
+            	// wrangle the data to have student averages
+            	console.log(_studentData);
+
+            	// use a variable to keep track of what the current year is
+            	// defined to be the last year in the year index for the student
+            	var currYear = _studentData[0].year.length - 1;
+            	var avgData = [0, 0, 0, 0]
+
+            	// student subject order is math, history, science, english
+            	_studentData.map(function (d){
+
+            		// currAvg is used to determine the average for the subject being determined
+            		// count is then used to store this into the appropriate part of avgData
+            		var currAvg = 0;
+            		var count = 0; 
+
+            		console.log(d.year[currYear].grades);
+
+            		// go through each subject in the current year for the current student
+            		for (var subject in d.year[currYear].grades){
+
+            			if(d.year[currYear].grades.hasOwnProperty(subject)){
+
+            				// hwCount keeps track of how many assignments there are in the subject
+            				var hwCount = 0;
+
+            				// go through each assignment in the grade, adding in the value
+            				for(var grade in d.year[currYear].grades[subject]){
+            					if(d.year[currYear].grades[subject].hasOwnProperty(grade)){
+
+            						console.log(d.year[currYear].grades[subject][grade])
+
+            						hwCount++;
+            						currAvg += d.year[currYear].grades[subject][grade];
+            					}
+            				}
+
+            				avgData[count] += currAvg/hwCount;
+
+	            			// prepare to find the average for a new subject
+	            			currAvg = 0;
+	            			count++;
+            			}
+
+            		}
 
 
-            // call this function after data is loaded, reformatted and bound to the variables
-            var initVis = function(){
+        		})
 
-                // var MyEventHandler = new Object();
+				avgData = avgData.map(function(d){return d/3});
+				subjectData = avgData;
+        	}
 
-                // instantiate the objects for visualization
-                var learning_graphs = new LearningGraphs(d3.select("#learningGraphs"), studentData);
-                // var age_vis = new AgeVis(d3.select("#ageVis"), studentData, metaData);
+            
+            initVis();
+        }
 
-                // bind the event handler
+	    var startLoad = function(){
 
-                  // $(MyEventHandler).bind("selectionChanged", function(event, startDate, endDate){
+	        //load data here and call "dataLoaded" afterwards
+	        queue()
+	            .defer(d3.json, 'data/studentData.json')
+	            .await(dataLoaded);
+	    }
 
-                  //     prio_vis.onSelectionChange(startDate, endDate);
-                  //     age_vis.onSelectionChange(startDate, endDate);
-                  // });
-            }
+	   	var passUpdate = function(selection)
+	    {
+	    	subject_graphs.onSelectionChange(selection);
 
-            // call this function after both files are loaded -- error should be "null" if no error
-            var dataLoaded = function (error, _studentData) {
+	    }
 
-                if (!error) {
-
-                	// learningData will be used to compile the information for the class's learning styles
-                	// order is visual, auditory, kinesthetic
-                	var learningData = [0, 0, 0];
-
-                	// total the values
-                	 _studentData.map(function(d){
-                	 	if(d.learning == "visual")
-                	 		learningData[0]++;
-                	 	else if (d.learning == "auditory")
-                	 		learningData[1]++;
-                	 	else
-                	 		learningData[2]++;
-
-                	})
-
-                	// add the learning data to the overall dataframe
-                	studentData.learning = learningData;
-
-                    initVis();
-                }
-            }
-
-            var startLoad = function(){
-
-                //load data here and call "dataLoaded" afterwards
-                queue()
-                    .defer(d3.json, 'data/studentData.json')
-                    .await(dataLoaded);
-            }
-
-            startLoad();
-        })
+	    startLoad();
     </script>
 
 <html>

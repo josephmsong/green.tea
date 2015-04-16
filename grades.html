@@ -19,7 +19,7 @@
 	#overview {
 	  width: 97vw;
 	  height: 95vh;
-	  left: 10%;
+	  left: 1vw;
 	  display: show;
 	  /*background-color: #ECECEC;*/
 	}
@@ -127,10 +127,6 @@
 		margin-right:50px;
 	}
 
-	.weaknesses {
-		float:left;
-	}
-
 	body {
 		font-family: Helvetica, sans-serif;
 		background-color: #d3d3d3
@@ -139,34 +135,23 @@
 
 	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<script src = "js/studentVis.js"></script>
 
 	<script>
 
 	var mathShow = false, histShow = false, sciShow = false, engShow = false;
 	var string = "Joseph";
-	var grade = 1;
+	var student;
+	var graphVis;
 
-	function change() {
-		var sel = document.getElementById('myselect');
-		console.log(sel.options[sel.selectedIndex].value)
-		if (sel.options[sel.selectedIndex].value == "one") {
-			grade = 3
-			update(string,grade)
-		}
-		else if (sel.options[sel.selectedIndex].value == "two") {
-			grade = 2
-			update(string,grade)
-		}
-		else {
-			grade = 1
-			update(string,grade)
-		}
-	}
+	update(0,string);
 
-	function update (string, grade) {
+	function update (grade, string) {
 		d3.json("data/studentData.json", function(error, data) {
 			
-			var student;
+			d3.select(".bar").remove()
+			d3.selectAll(".overall").remove()
+			d3.selectAll(".list").remove()
 
 			if (string = "Joseph") {
 				student = data[0]
@@ -177,20 +162,22 @@
 			else {
 				student = data[2]
 			}
-			console.log(student)
-			var index = student.year.length-grade;
+
+			d3.select("#graph").append("div").attr("class","bar")
+			graphVis = new ClassGraphs(d3.select(".bar"), student);
+
+			var index = student.year.length-(grade+1);
 			var keys = Object.keys(student.year[index].grades)
 			var english = Object.keys(student.year[index].grades.english)
 			var math = Object.keys(student.year[index].grades.math)
 			var science = Object.keys(student.year[index].grades.science)
 			var history = Object.keys(student.year[index].grades.history)
-			console.log(keys)
 			d3.select(".name").text(student.name)
 
 
 			keys.forEach(function(d){
-				d3.select("."+d).append("label").text("overall").style("float","left").style("font-weight","bold")
-				d3.select("."+d).append("br")
+				d3.select("."+d).append("label").text("overall").style("float","left").style("font-weight","bold").attr("class","overall")
+				d3.select("."+d).append("br").attr("class","overall")
 				if (d=="math") {
 					var arr = [];
 					for (var i = 0; i<math.length;i++) {
@@ -212,13 +199,13 @@
 					else {
 						average = 'F'
 					}
-					d3.select("."+d.substring(0,3)).append("label").text(average).style("float", "right").style("font-weight","bold")
-					d3.select("."+d.substring(0,3)).append("br")
+					d3.select("."+d.substring(0,3)).append("label").text(average).style("float", "right").style("font-weight","bold").attr("class","overall")
+					d3.select("."+d.substring(0,3)).append("br").attr("class","overall")
 					math.forEach(function(e) {
-						d3.select("."+d).append("label").text(e).style("float", "left")
-						d3.select("."+d).append("br")
-						d3.select("."+d.substring(0,3)).append("label").text(student.year[index].grades.math[e])
-						d3.select("."+d.substring(0,3)).append("br")
+						d3.select("."+d).append("label").text(e).style("float", "left").attr("class","overall")
+						d3.select("."+d).append("br").attr("class","overall")
+						d3.select("."+d.substring(0,3)).append("label").text(student.year[index].grades.math[e]).attr("class","overall")
+						d3.select("."+d.substring(0,3)).append("br").attr("class","overall")
 					})
 				}
 				else if (d=="english") {
@@ -242,13 +229,13 @@
 					else {
 						average = 'F'
 					}
-					d3.select("."+d.substring(0,3)).append("label").text(average).style("float", "right").style("font-weight","bold")
-					d3.select("."+d.substring(0,3)).append("br")
+					d3.select("."+d.substring(0,3)).append("label").text(average).style("float", "right").style("font-weight","bold").attr("class","overall")
+					d3.select("."+d.substring(0,3)).append("br").attr("class","overall")
 					english.forEach(function(e) {
-						d3.select("."+d).append("label").text(e).style("float", "left")
-						d3.select("."+d).append("br")
-						d3.select("."+d.substring(0,3)).append("label").text(student.year[index].grades.english[e]).style("float","right")
-						d3.select("."+d.substring(0,3)).append("br")
+						d3.select("."+d).append("label").text(e).style("float", "left").attr("class","overall")
+						d3.select("."+d).append("br").attr("class","overall")
+						d3.select("."+d.substring(0,3)).append("label").text(student.year[index].grades.english[e]).style("float","right").attr("class","overall")
+						d3.select("."+d.substring(0,3)).append("br").attr("class","overall")
 					})
 				}
 				else if (d=="history") {
@@ -272,13 +259,13 @@
 					else {
 						average = 'F'
 					}
-					d3.select("."+d.substring(0,3)).append("label").text(average).style("float", "right").style("font-weight","bold")
-					d3.select("."+d.substring(0,3)).append("br")
+					d3.select("."+d.substring(0,3)).append("label").text(average).style("float", "right").style("font-weight","bold").attr("class","overall")
+					d3.select("."+d.substring(0,3)).append("br").attr("class","overall")
 					history.forEach(function(e) {
-						d3.select("."+d).append("label").text(e).style("float", "left")
-						d3.select("."+d).append("br")
-						d3.select("."+d.substring(0,3)).append("label").text(student.year[index].grades.history[e]).style("float","right")
-						d3.select("."+d.substring(0,3)).append("br")
+						d3.select("."+d).append("label").text(e).style("float", "left").attr("class","overall")
+						d3.select("."+d).append("br").attr("class","overall")
+						d3.select("."+d.substring(0,3)).append("label").text(student.year[index].grades.history[e]).style("float","right").attr("class","overall")
+						d3.select("."+d.substring(0,3)).append("br").attr("class","overall")
 					})
 				}
 				else {
@@ -302,16 +289,16 @@
 					else {
 						average = 'F'
 					}
-					d3.select("."+d.substring(0,3)).append("label").text(average).style("float", "right").style("font-weight","bold")
-					d3.select("."+d.substring(0,3)).append("br")
+					d3.select("."+d.substring(0,3)).append("label").text(average).style("float", "right").style("font-weight","bold").attr("class","overall")
+					d3.select("."+d.substring(0,3)).append("br").attr("class","overall")
 					science.forEach(function(e) {
-						d3.select("."+d).append("label").text(e).style("float", "left")
-						d3.select("."+d).append("br")
-						d3.select("."+d.substring(0,3)).append("label").text(student.year[index].grades.science[e]).style("float","right")
-						d3.select("."+d.substring(0,3)).append("br")
+						d3.select("."+d).append("label").text(e).style("float", "left").attr("class","overall")
+						d3.select("."+d).append("br").attr("class","overall")
+						d3.select("."+d.substring(0,3)).append("label").text(student.year[index].grades.science[e]).style("float","right").attr("class","overall")
+						d3.select("."+d.substring(0,3)).append("br").attr("class","overall")
 					})
 				}
-			});
+			})
 
 			var mathweak = [];
 			var sciweak = [];
@@ -348,13 +335,15 @@
 			var hweak = getKeyByValue(student.year[index].grades.history, d3.min(histweak));
 
 			d3.select(".weak")
-				.append("li").text(mweak).style("text-align","left")
-				.append("li").text(eweak).style("text-align","left")
-				.append("li").text(sweak).style("text-align","left")
-				.append("li").text(hweak).style("text-align","left")
+				.append("li").text(mweak).style("text-align","left").attr("class","list")
+				.append("li").text(eweak).style("text-align","left").attr("class","list")
+				.append("li").text(sweak).style("text-align","left").attr("class","list")
+				.append("li").text(hweak).style("text-align","left").attr("class","list")
 
-			})
-		}
+			graphVis.onSelectionChange(grade);
+
+		})
+	}
 
 	function getKeyByValue (obj, value) {
 	    for( var prop in obj ) {
@@ -365,8 +354,12 @@
     	}
 	}
 
+	var updateVis = function(selectedIndex){
+		graphVis.onSelectionChange(selectedIndex);
+		update(selectedIndex,string)
+	};
+
 	function toggleMath() {
-		console.log(mathShow);
 		if (mathShow) {
 			$( "#math" ).css( "display", "none" );
 			mathShow = false;
@@ -379,7 +372,6 @@
 	}
 	
 	function toggleHistory() {
-		console.log(histShow);
 		if (histShow) {
 			$( "#history" ).css( "display", "none" );
 			histShow = false;
@@ -392,7 +384,6 @@
 	}
 	
 	function toggleScience() {
-		console.log(sciShow);
 		if (sciShow) {
 			$( "#science" ).css( "display", "none" );
 			sciShow = false;
@@ -406,7 +397,6 @@
 	}
 	
 	function toggleEnglish() {
-		console.log(engShow);
 		if (engShow) {
 			$( "#english" ).css( "display", "none" );
 			engShow = false;
@@ -419,8 +409,6 @@
 
 	}
 	
-	update(string,grade)
-
 	</script>
 </head>
 
@@ -430,10 +418,10 @@
 		<br>
 		<label class="name"> </label><br />
 		Grade Report <br />
-		<select id="myselect" onchange="change()">
-		  <option value="three" class="opt">Grade 3</option>
-		  <option value="two" class="opt">Grade 2</option>
-		  <option value="one" class="opt">Grade 1</option>
+		<select onchange="updateVis(this.selectedIndex)">
+		  <option value="1" id="gradeSelect">Grade 3</option>
+		  <option value="2" id="gradeSelect">Grade 2</option>
+		  <option value="3" id="gradeSelect">Grade 1</option>
 		</select>
 		</div>
 		<div id = "back">
@@ -484,12 +472,7 @@
 			<a style="margin-left:20px;"type="btn btn-xs" href="change.html">View analysis</a>
 			</div>
 
-			<div id = "graph" style="top:46%; width:45.3%; left:5%">
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus gravida euismod tellus, maximus efficitur turpis tempus vel. Ut fringilla odio et lectus cursus viverra. Ut volutpat tempus turpis, sed aliquam dolor vulputate sit amet. Nam auctor neque vitae risus venenatis commodo. Etiam lacinia turpis tincidunt semper sodales. Pellentesque quis sollicitudin massa. Proin tincidunt elit nisl, sed congue nibh convallis id. Fusce vitae mauris vel arcu accumsan gravida. Pellentesque at ultricies ante.</p>
-
-				<p>Donec vitae tempus lectus. Donec semper tempor turpis non tincidunt. In sed libero eu diam euismod vulputate vitae ac nibh. Fusce blandit dui in elit porta aliquet. Nunc semper interdum sapien. Nunc condimentum felis non lacus porttitor, eget consequat massa fringilla. Ut facilisis lobortis tristique. In non pulvinar massa. Phasellus eu maximus metus.</p>
-
-				<p>Nulla volutpat convallis nibh, ac volutpat libero molestie et. Donec sed ligula purus. Integer tincidunt semper eros. Etiam justo nibh, ullamcorper eu eros eu, iaculis faucibus nisi. Sed eu bibendum ex, vel tincidunt quam. Nam faucibus mattis orci, id lobortis est feugiat vel. Ut hendrerit risus auctor sapien facilisis lacinia. Suspendisse potenti. Donec condimentum pellentesque enim a rutrum.</p>
+			<div id = "graph" style="top:46%; width:45.4%;left:5%;height:30.3%;padding-top:40px">
 			</div>
 		</div>
 	</div>

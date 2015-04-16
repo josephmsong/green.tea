@@ -1,21 +1,21 @@
 // D3 to show the graphs for the class page// D3 to show the graphs for the class page
 
-LearningGraphs = function(_parentElement, _data){
+ClassGraphs = function(_parentElement, _data, _allData){
     this.parentElement = _parentElement;
     this.data = _data;
     this.displayData = [];
-    this.labelNames = ["visual", "auditory", "kinesthetic"]
+    this.labelNames = ["math", "history", "science", "english"]
 
     // define all "constants" here
-    this.margin = {top: 20, right: 20, bottom: 60, left: 50},
-    this.width = 300 - this.margin.left - this.margin.right,
+    this.margin = {top: 20, right: 20, bottom: 40, left: 50},
+    this.width = 600 - this.margin.left - this.margin.right,
     this.height = 210 - this.margin.top - this.margin.bottom;
 
     this.initVis();
 }
 
 // method to set up SVG and variables
-LearningGraphs.prototype.initVis = function(){
+ClassGraphs.prototype.initVis = function(){
 
     var that = this;
 
@@ -72,16 +72,16 @@ LearningGraphs.prototype.initVis = function(){
 /**
  * the drawing function - should use the D3 selection, enter, exit
  */
-LearningGraphs.prototype.updateVis = function(){
+ClassGraphs.prototype.updateVis = function(){
 
     var that = this;
 
     // ...update scales
-    this.x.domain([0,1, 2]);
+    this.x.domain([0,1,2,3]);
 
-    this.y.domain(d3.extent(this.displayData, function(d, i) {return d;}));
+    this.y.domain([85, d3.max(this.displayData)]);
 
-    this.yAxis.tickValues([0, 1, 2]);
+    console.log(this.displayData);
 
     // updates axis
     this.svg.select(".x.axis")
@@ -89,10 +89,10 @@ LearningGraphs.prototype.updateVis = function(){
         .selectAll("text")
         	.text(function(d, i){return that.labelNames[i];})
         	.style("text-anchor", "end")
-        	.attr("x", -15)
-        	.attr("y", -9)
+        	.attr("x", -21)
+        	.attr("y", -24)
         	.attr("dy", "0.15em")
-        	.attr("font-size", "35%")
+        	.attr("font-size", "65%")
         	.attr("transform", function(d){
         		return "rotate(-65)";
         	});
@@ -102,10 +102,9 @@ LearningGraphs.prototype.updateVis = function(){
 
 
     // updates graph
-    d3.selectAll(".learnBars").remove();
-    d3.selectAll(".barsLabel").remove();
+    d3.selectAll(".subjectBars").remove();
 
-   	var colorScale = d3.scale.category20c();
+   	var colorScale = d3.scale.category20b();
 
     var groups = this.svg.append("g")
                 .selectAll("g.row")
@@ -116,13 +115,21 @@ LearningGraphs.prototype.updateVis = function(){
 
     var bars = groups
                 .append("rect")
-                .attr("width", function (d, i) {return 35;})
-                .attr("height", function (d){return that.y(d);})
+                .attr("width", function (d, i) {return 50;})
+                .attr("height", function (d){return that.height - that.y(d);})
                 .attr("x", function (d, i) {return that.x(i);})
-                .attr("y", function (d,i) {return that.height - that.y(d);})
-                .attr("class", "learnBars")
+                .attr("y", function (d,i) {return that.y(d);})
+                .attr("class", "subjectBars")
                 .attr("fill", colorScale)
                 .append("text")
+
+}
+
+/**
+* wrangles data when a subject is selected in order to show the more detailed assignment data
+*/
+ClassGraphs.prototype.wrangleData = function (subjectSelected){
+
 
 }
 
@@ -132,9 +139,10 @@ LearningGraphs.prototype.updateVis = function(){
  * be defined here.
  * @param selection
  */
-LearningGraphs.prototype.onSelectionChange= function (selectionStart, selectionEnd){
+ClassGraphs.prototype.onSelectionChange= function (subjectSelected){
 
-    // this.wrangleData(function(d){return d.time >= selectionStart && d.time <= selectionEnd})
+    this.wrangleData(subjectSelected)
+    console.log("ay")
 
     this.updateVis();
 
