@@ -19,7 +19,7 @@
 	#overview {
 	  width: 97vw;
 	  height: 95vh;
-	  left: 1vw;
+	  left: 10%;
 	  display: show;
 	  /*background-color: #ECECEC;*/
 	}
@@ -127,6 +127,10 @@
 		margin-right:50px;
 	}
 
+	.weaknesses {
+		float:left;
+	}
+
 	body {
 		font-family: Helvetica, sans-serif;
 		background-color: #d3d3d3
@@ -139,166 +143,227 @@
 	<script>
 
 	var mathShow = false, histShow = false, sciShow = false, engShow = false;
-	var string = "Joseph Song";
-	var student;
+	var string = "Joseph";
+	var grade = 1;
 
-	d3.json("data/studentData.json", function(error, data) {
-		console.log(data)
-		if (string = "Joseph") {
-			student = data[0]
+	function change() {
+		var sel = document.getElementById('myselect');
+		console.log(sel.options[sel.selectedIndex].value)
+		if (sel.options[sel.selectedIndex].value == "one") {
+			grade = 3
+			update(string,grade)
 		}
-		else if (string = "Roseanne") {
-			student = data[1]
+		else if (sel.options[sel.selectedIndex].value == "two") {
+			grade = 2
+			update(string,grade)
 		}
 		else {
-			student = data[2]
+			grade = 1
+			update(string,grade)
 		}
-		console.log(student)
-		var index = student.year.length-1;
-		var keys = Object.keys(student.year[index].grades)
-		var english = Object.keys(student.year[index].grades.english)
-		var math = Object.keys(student.year[index].grades.math)
-		var science = Object.keys(student.year[index].grades.science)
-		var history = Object.keys(student.year[index].grades.history)
-		console.log(keys)
-		d3.select(".name").text(student.name)
+	}
 
+	function update (string, grade) {
+		d3.json("data/studentData.json", function(error, data) {
+			
+			var student;
 
-		keys.forEach(function(d){
-			d3.select("."+d).append("label").text("overall").style("float","left").style("font-weight","bold")
-			d3.select("."+d).append("br")
-			if (d=="math") {
-				var arr = [];
-				for (var i = 0; i<math.length;i++) {
-					arr[i] = student.year[index].grades.math[math[i]]
-				}
-				var average = d3.mean(arr)
-				if (average >= 90) {
-					average = 'A'
-				}
-				else if (average >= 80 && average < 90) {
-					average = 'B'
-				}
-				else if (average >= 70 && average < 80) {
-					average = 'C'
-				}
-				else if (average >= 60 && average < 70) {
-					average = 'D'
-				}
-				else {
-					average = 'F'
-				}
-				d3.select("."+d.substring(0,3)).append("label").text(average).style("float", "right").style("font-weight","bold")
-				d3.select("."+d.substring(0,3)).append("br")
-				math.forEach(function(e) {
-					d3.select("."+d).append("label").text(e).style("float", "left")
-					d3.select("."+d).append("br")
-					d3.select("."+d.substring(0,3)).append("label").text(student.year[index].grades.math[e])
-					d3.select("."+d.substring(0,3)).append("br")
-				})
+			if (string = "Joseph") {
+				student = data[0]
 			}
-			else if (d=="english") {
-				var arr = [];
-				for (var i = 0; i<english.length;i++) {
-					arr[i] = student.year[index].grades.english[english[i]]
-				}
-				var average = d3.mean(arr)
-				if (average >= 90) {
-					average = 'A'
-				}
-				else if (average >= 80 && average < 90) {
-					average = 'B'
-				}
-				else if (average >= 70 && average < 80) {
-					average = 'C'
-				}
-				else if (average >= 60 && average < 70) {
-					average = 'D'
-				}
-				else {
-					average = 'F'
-				}
-				d3.select("."+d.substring(0,3)).append("label").text(average).style("float", "right").style("font-weight","bold")
-				d3.select("."+d.substring(0,3)).append("br")
-				english.forEach(function(e) {
-					d3.select("."+d).append("label").text(e).style("float", "left")
-					d3.select("."+d).append("br")
-					d3.select("."+d.substring(0,3)).append("label").text(student.year[index].grades.english[e]).style("float","right")
-					d3.select("."+d.substring(0,3)).append("br")
-				})
-			}
-			else if (d=="history") {
-				var arr = [];
-				for (var i = 0; i<history.length;i++) {
-					arr[i] = student.year[index].grades.history[history[i]]
-				}
-				var average = d3.mean(arr)
-				if (average >= 90) {
-					average = 'A'
-				}
-				else if (average >= 80 && average < 90) {
-					average = 'B'
-				}
-				else if (average >= 70 && average < 80) {
-					average = 'C'
-				}
-				else if (average >= 60 && average < 70) {
-					average = 'D'
-				}
-				else {
-					average = 'F'
-				}
-				d3.select("."+d.substring(0,3)).append("label").text(average).style("float", "right").style("font-weight","bold")
-				d3.select("."+d.substring(0,3)).append("br")
-				history.forEach(function(e) {
-					d3.select("."+d).append("label").text(e).style("float", "left")
-					d3.select("."+d).append("br")
-					d3.select("."+d.substring(0,3)).append("label").text(student.year[index].grades.history[e]).style("float","right")
-					d3.select("."+d.substring(0,3)).append("br")
-				})
+			else if (string = "Roseanne") {
+				student = data[1]
 			}
 			else {
-				var arr = [];
-				for (var i = 0; i<english.length;i++) {
-					arr[i] = student.year[index].grades.english[english[i]]
+				student = data[2]
+			}
+			console.log(student)
+			var index = student.year.length-grade;
+			var keys = Object.keys(student.year[index].grades)
+			var english = Object.keys(student.year[index].grades.english)
+			var math = Object.keys(student.year[index].grades.math)
+			var science = Object.keys(student.year[index].grades.science)
+			var history = Object.keys(student.year[index].grades.history)
+			console.log(keys)
+			d3.select(".name").text(student.name)
+
+
+			keys.forEach(function(d){
+				d3.select("."+d).append("label").text("overall").style("float","left").style("font-weight","bold")
+				d3.select("."+d).append("br")
+				if (d=="math") {
+					var arr = [];
+					for (var i = 0; i<math.length;i++) {
+						arr[i] = student.year[index].grades.math[math[i]]
+					}
+					var average = d3.mean(arr)
+					if (average >= 90) {
+						average = 'A'
+					}
+					else if (average >= 80 && average < 90) {
+						average = 'B'
+					}
+					else if (average >= 70 && average < 80) {
+						average = 'C'
+					}
+					else if (average >= 60 && average < 70) {
+						average = 'D'
+					}
+					else {
+						average = 'F'
+					}
+					d3.select("."+d.substring(0,3)).append("label").text(average).style("float", "right").style("font-weight","bold")
+					d3.select("."+d.substring(0,3)).append("br")
+					math.forEach(function(e) {
+						d3.select("."+d).append("label").text(e).style("float", "left")
+						d3.select("."+d).append("br")
+						d3.select("."+d.substring(0,3)).append("label").text(student.year[index].grades.math[e])
+						d3.select("."+d.substring(0,3)).append("br")
+					})
 				}
-				var average = d3.mean(arr)
-				if (average >= 90) {
-					average = 'A'
+				else if (d=="english") {
+					var arr = [];
+					for (var i = 0; i<english.length;i++) {
+						arr[i] = student.year[index].grades.english[english[i]]
+					}
+					var average = d3.mean(arr)
+					if (average >= 90) {
+						average = 'A'
+					}
+					else if (average >= 80 && average < 90) {
+						average = 'B'
+					}
+					else if (average >= 70 && average < 80) {
+						average = 'C'
+					}
+					else if (average >= 60 && average < 70) {
+						average = 'D'
+					}
+					else {
+						average = 'F'
+					}
+					d3.select("."+d.substring(0,3)).append("label").text(average).style("float", "right").style("font-weight","bold")
+					d3.select("."+d.substring(0,3)).append("br")
+					english.forEach(function(e) {
+						d3.select("."+d).append("label").text(e).style("float", "left")
+						d3.select("."+d).append("br")
+						d3.select("."+d.substring(0,3)).append("label").text(student.year[index].grades.english[e]).style("float","right")
+						d3.select("."+d.substring(0,3)).append("br")
+					})
 				}
-				else if (average >= 80 && average < 90) {
-					average = 'B'
-				}
-				else if (average >= 70 && average < 80) {
-					average = 'C'
-				}
-				else if (average >= 60 && average < 70) {
-					average = 'D'
+				else if (d=="history") {
+					var arr = [];
+					for (var i = 0; i<history.length;i++) {
+						arr[i] = student.year[index].grades.history[history[i]]
+					}
+					var average = d3.mean(arr)
+					if (average >= 90) {
+						average = 'A'
+					}
+					else if (average >= 80 && average < 90) {
+						average = 'B'
+					}
+					else if (average >= 70 && average < 80) {
+						average = 'C'
+					}
+					else if (average >= 60 && average < 70) {
+						average = 'D'
+					}
+					else {
+						average = 'F'
+					}
+					d3.select("."+d.substring(0,3)).append("label").text(average).style("float", "right").style("font-weight","bold")
+					d3.select("."+d.substring(0,3)).append("br")
+					history.forEach(function(e) {
+						d3.select("."+d).append("label").text(e).style("float", "left")
+						d3.select("."+d).append("br")
+						d3.select("."+d.substring(0,3)).append("label").text(student.year[index].grades.history[e]).style("float","right")
+						d3.select("."+d.substring(0,3)).append("br")
+					})
 				}
 				else {
-					average = 'F'
-				}
-				d3.select("."+d.substring(0,3)).append("label").text(average).style("float", "right").style("font-weight","bold")
-				d3.select("."+d.substring(0,3)).append("br")
-				science.forEach(function(e) {
-					d3.select("."+d).append("label").text(e).style("float", "left")
-					d3.select("."+d).append("br")
-					d3.select("."+d.substring(0,3)).append("label").text(student.year[index].grades.science[e]).style("float","right")
+					var arr = [];
+					for (var i = 0; i<english.length;i++) {
+						arr[i] = student.year[index].grades.english[english[i]]
+					}
+					var average = d3.mean(arr)
+					if (average >= 90) {
+						average = 'A'
+					}
+					else if (average >= 80 && average < 90) {
+						average = 'B'
+					}
+					else if (average >= 70 && average < 80) {
+						average = 'C'
+					}
+					else if (average >= 60 && average < 70) {
+						average = 'D'
+					}
+					else {
+						average = 'F'
+					}
+					d3.select("."+d.substring(0,3)).append("label").text(average).style("float", "right").style("font-weight","bold")
 					d3.select("."+d.substring(0,3)).append("br")
-				})
-			}
-		})
+					science.forEach(function(e) {
+						d3.select("."+d).append("label").text(e).style("float", "left")
+						d3.select("."+d).append("br")
+						d3.select("."+d.substring(0,3)).append("label").text(student.year[index].grades.science[e]).style("float","right")
+						d3.select("."+d.substring(0,3)).append("br")
+					})
+				}
+			});
 
-		// grades.selectAll("label")
-		// 	.data(keys)
-		// 	.append("label")
-		// 	.text()
-			// .data(student.year[index].grades)
-			// .class("")
-			// .text(function(d) {console.log(d)})
+			var mathweak = [];
+			var sciweak = [];
+			var histweak = [];
+			var engweak = [];
+			var mathcount = 0;
+			var scicount = 0;
+			var histcount = 0;
+			var engcount = 0;
 
+			english.forEach(function(d) {
+				engweak[engcount] = student.year[index].grades.english[d]
+				engcount++;
+			})
 
-	})
+			math.forEach(function(d) {
+				mathweak[mathcount] = student.year[index].grades.math[d];
+				mathcount++;
+			})
+
+			history.forEach(function(d) {
+				histweak[histcount] = student.year[index].grades.history[d];
+				histcount++;
+			})
+
+			science.forEach(function(d) {
+				sciweak[scicount] = student.year[index].grades.science[d];
+				scicount++;
+			})
+
+			var mweak = getKeyByValue(student.year[index].grades.math, d3.min(mathweak));
+			var eweak = getKeyByValue(student.year[index].grades.english, d3.min(engweak));
+			var sweak = getKeyByValue(student.year[index].grades.science, d3.min(sciweak));
+			var hweak = getKeyByValue(student.year[index].grades.history, d3.min(histweak));
+
+			d3.select(".weak")
+				.append("li").text(mweak).style("text-align","left")
+				.append("li").text(eweak).style("text-align","left")
+				.append("li").text(sweak).style("text-align","left")
+				.append("li").text(hweak).style("text-align","left")
+
+			})
+		}
+
+	function getKeyByValue (obj, value) {
+	    for( var prop in obj ) {
+	        if( obj.hasOwnProperty( prop ) ) {
+	             if( obj[ prop ] == value )
+	                 return prop;
+        	}
+    	}
+	}
 
 	function toggleMath() {
 		console.log(mathShow);
@@ -354,6 +419,8 @@
 
 	}
 	
+	update(string,grade)
+
 	</script>
 </head>
 
@@ -363,34 +430,24 @@
 		<br>
 		<label class="name"> </label><br />
 		Grade Report <br />
-		<select>
-		  <option value="three">Grade 3</option>
-		  <option value="two">Grade 2</option>
-		  <option value="one">Grade 1</option>
+		<select id="myselect" onchange="change()">
+		  <option value="three" class="opt">Grade 3</option>
+		  <option value="two" class="opt">Grade 2</option>
+		  <option value="one" class="opt">Grade 1</option>
 		</select>
 		</div>
 		<div id = "back">
 			<a href = "student.html" style ="font-size:15px;padding-left:2px">Back to Student Profile</a>
 		</div>
 		<div id = "overview">
-			<div id = "weaknesses" style="top: 8.2%; height:30%">
+			<div id = "weaknesses" style="top:8.2%; height:22%; width:45%; left:5%">
 				<p class = "header";>Weaknesses</p>
-
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus leo ante, et sollicitudin nulla eleifend nec. Vivamus eu convallis enim. Praesent eros sapien, fermentum in mollis et, maximus quis metus. Ut libero purus, semper id massa vitae, imperdiet bibendum nisi. Fusce a justo at quam posuere euismod ac non tellus. In hac habitasse platea dictumst. Nullam sollicitudin enim nunc, a placerat nisi blandit vestibulum. Pellentesque pretium quam malesuada quam feugiat pretium. Praesent placerat purus quis ipsum elementum, at hendrerit neque rutrum. Aenean purus lorem, bibendum sed feugiat vitae, aliquet vel mauris. Curabitur nec nulla ac mi sagittis suscipit quis non urna.</p>
-
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus gravida euismod tellus, maximus efficitur turpis tempus vel. Ut fringilla odio et lectus cursus viverra. Ut volutpat tempus turpis, sed aliquam dolor vulputate sit amet. Nam auctor neque vitae risus venenatis commodo. Etiam lacinia turpis tincidunt semper sodales. Pellentesque quis sollicitudin massa. Proin tincidunt elit nisl, sed congue nibh convallis id. Fusce vitae mauris vel arcu accumsan gravida. Pellentesque at ultricies ante.</p>
-
-				<p>Donec vitae tempus lectus. Donec semper tempor turpis non tincidunt. In sed libero eu diam euismod vulputate vitae ac nibh. Fusce blandit dui in elit porta aliquet. Nunc semper interdum sapien. Nunc condimentum felis non lacus porttitor, eget consequat massa fringilla. Ut facilisis lobortis tristique. In non pulvinar massa. Phasellus eu maximus metus.</p>
+				<div class="weaknesses">
+					<ul class="weak">
+					</ul>
+				</div>
 			</div>
-			<div id = "select" style="top: 8.2%; left: 47.5%; float:left; height:27.7%; margin-left:10px; width:9%; padding-top:20px">
-				<form id="weaknessSelector">
-					<div style="margin-top:20px;margin-left:5px"><input type="checkbox" name="subject" value="math" style="float:left"><label style="float:left">Math</label></div><br />
-					<div style="margin-top:20px;margin-left:5px"><input type="checkbox" name="subject" value="history" style="float:left"><label style="float:left">History</label></div><br />
-					<div style="margin-top:20px;margin-left:5px"><input type="checkbox" name="subject" value="science" style="float:left"><label style="float:left">Science</label></div><br />
-					<div style="margin-top:20px;margin-left:5px"><input type="checkbox" name="subject" value="english" style="float:left"><label style="float:left">English</label></div><br />
-				</form>
-			</div>
-			<div id = "grades" style="height:61.2%">
+			<div id = "grades" style="height:61.2%; left:52%">
 			<div style="margin-top:30px;float:left;margin-left:47%;" class = "header">Math</div>
 			<div style="margin-top:30px;margin-left:15.5px" class="arrow-down" onclick="toggleMath();"></div>
 			<br clear="all"/>
@@ -427,7 +484,7 @@
 			<a style="margin-left:20px;"type="btn btn-xs" href="change.html">View analysis</a>
 			</div>
 
-			<div id = "graph" style="top:52%; width:55.2%">
+			<div id = "graph" style="top:46%; width:45.3%; left:5%">
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus gravida euismod tellus, maximus efficitur turpis tempus vel. Ut fringilla odio et lectus cursus viverra. Ut volutpat tempus turpis, sed aliquam dolor vulputate sit amet. Nam auctor neque vitae risus venenatis commodo. Etiam lacinia turpis tincidunt semper sodales. Pellentesque quis sollicitudin massa. Proin tincidunt elit nisl, sed congue nibh convallis id. Fusce vitae mauris vel arcu accumsan gravida. Pellentesque at ultricies ante.</p>
 
 				<p>Donec vitae tempus lectus. Donec semper tempor turpis non tincidunt. In sed libero eu diam euismod vulputate vitae ac nibh. Fusce blandit dui in elit porta aliquet. Nunc semper interdum sapien. Nunc condimentum felis non lacus porttitor, eget consequat massa fringilla. Ut facilisis lobortis tristique. In non pulvinar massa. Phasellus eu maximus metus.</p>
