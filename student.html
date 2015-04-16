@@ -34,7 +34,7 @@
 
 			<div class = "col-md-4">
 				<p>
-					<img src="studentpicture.jpg" width = 300 height = 201 alt="Joseph Song">
+					<img src="" width = 200 height = 200 alt="Joseph Song">
 					<!-- image from http://www.montgomeryschoolsmd.org/uploadedImages/parents/parentguide09.jpg -->
 				</p>
 				<p>
@@ -211,9 +211,9 @@
             		var id = $.urlParam('id');
             		var student = dat[id];
             		console.log(student.name);
-            		$("#studentName").html("<h2><b>" + student.name + "</h2></b>")
-            		$("#studentGrade").html("<b>" + student.name + "</b>")
-
+            		$("#studentName").html("<h2><b>" + student.name + "</h2></b>");
+            		// $("#studentGrade").html("<b>" + student.name + "</b>");
+            		$("img").attr('src', student.picture);
             		/*$.each(dat,function(index, stud){
             			var a = document.createElement("img");
 						a.src = stud.picture;
