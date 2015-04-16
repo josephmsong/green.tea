@@ -87,7 +87,7 @@
 		</div>
 		<br/><br/><br/>
 		<div class="leftnav" style="height:550px">
-			<div class="student">
+			<!-- <div class="student">
 				<div class="student"><img src="propic.jpeg" style="height:80px;
 				width:90px"></img></div>
 				<label class="student">Student 1</label>
@@ -116,7 +116,19 @@
 				width:90px"></img></div>
 				<label class="student">Student 5</label>
 				<a href="student.html" style="float:right;color:red;margin-top:60px;margin-right:5px;font-size:80%">View Profile</a>
-			</div>
+			</div> -->
+			<script type="text/javascript">
+				$(function(){
+        		$.getJSON('data/studentData.json',function(data){
+            		console.log('success');
+            		$.each(data,function(i,stud){
+                		$('ul').append('<li>'+stud.firstName+' '+stud.lastName+'</li>');
+            		});
+        		}).error(function(){
+            		console.log('error');
+       			});
+   			});
+			</script>
 		</div>
 		<div class="middle">
 			<label style="display:block;margin:auto;font-size:125%;font-weight:bold">Styles of Learning</label>

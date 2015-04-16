@@ -66,15 +66,15 @@
                         "history": 
                             {
                                 "pledge": 93,
-                                "constitution": 87,
-                                "war": 95,
-                                "law": 90
+                                "constitution": 85,
+                                "war": 85,
+                                "law": 87
                             }
                         ,
                         "science": 
                             {
-                                "acids": 87,
-                                "entropy": 100,
+                                "acids": 89,
+                                "entropy": 90,
                                 "elements": 93,
                                 "animals": 90
                             }
@@ -82,8 +82,8 @@
                         "english": 
                             {
                                 "spelling": 90,
-                                "grammar": 93,
-                                "punctuation": 95,
+                                "grammar": 91,
+                                "punctuation": 92,
                                 "sentences": 90
                             }
                         
@@ -103,10 +103,10 @@
                     {
                         "math": 
                             {
-                                "addition": 92,
-                                "subtraction": 90,
-                                "division": 95,
-                                "multiplication": 99
+                                "addition": 88,
+                                "subtraction": 80,
+                                "division": 85,
+                                "multiplication": 89
                             }
                         ,
                         "history": 
