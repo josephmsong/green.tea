@@ -117,12 +117,12 @@
 
 			<div class = "col-md-8">
 				<h3 style = "text-align:center">Teacher Comments</h3>
-				<table>
+				<table id="comments">
 				  <tr>
 				  	<th style="width:600px"></th>
 				  	<th style="width:100px; text-align:right;"></th>
 				  </tr>
-
+				  <!--
 				  <tr>
 				    <td><b>Style of Learning</b></td>
 				    <td><br></td>
@@ -174,11 +174,11 @@
 				  	<td>Joseph is a very visual learner and particularly enjoys drawing and watching videos. He is good at grasping concepts related to shapes and has picked up math very quickly. </td>
 				  	<td>- Mrs. Smith</td>
 				  </tr>
-
+				  
 				  <tr>
 				  	<td><br></td>
 				  </tr>
-
+				  -->
 				</table>	
 			</div>
 
@@ -214,6 +214,13 @@
             		$("#studentName").html("<h2><b>" + student.name + "</h2></b>");
             		// $("#studentGrade").html("<b>" + student.name + "</b>");
             		$("img").attr('src', student.picture);
+            		var teacher = student.year[0].teacher;
+            		console.log(student.year[0].comments);
+            		$.each((student.year[0]).comments, function(key, value){
+            			$("#comments").append("<tr><td><b>" + key + "</b></td><td><br></td></tr>");
+            			$("#comments").append("<tr><td>"+ value + "</td><td>-"+ teacher + "</td></tr>");
+            			$("#comments").append("<tr><td><br></td></tr>");
+            		})
             		/*$.each(dat,function(index, stud){
             			var a = document.createElement("img");
 						a.src = stud.picture;
