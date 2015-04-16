@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<script src="libs/d3/d3.min.js" charset="utf-8"></script>
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<script src = "js/changeVis.js"></script>
+	<script src="http://d3js.org/queue.v1.min.js"></script>
+
 	<style>
 	#dashboard {
 	  width: 97vw;
@@ -43,9 +48,9 @@
 	#subject {
 	  text-align: center;
 	  width: 10vw;
-	  height: 70vh;
+	  height: 77vh;
 	  left: 2vw;
-	  top: 26vh;
+	  top: 14vh;
 	  position: fixed;
 	  display: inline-block;
 /*	  border-style: solid;
@@ -55,9 +60,9 @@
 	#graph {
 	  text-align: center;
 	  width: 85vw;
-	  height: 70vh;
+	  height: 77vh;
 	  left: 13vw;
-	  top: 26vh;
+	  top: 14vh;
 	  position: fixed;
 	  display: inline-block;
 /*	  border-style: solid;
@@ -75,12 +80,105 @@
 	}
 	</style>
 
-	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-
 	<!-- Get some nice font-->
     <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
 
-	<script>	
+	<script>
+
+		// variables keeping global knowledge of the data
+        var subjectData = [];
+        var change_graph;
+
+        // studentValue is the index of the student who we are looking at for this analysis
+        var studentValue = 0;
+
+        // call this function after data is loaded, reformatted and bound to the variables
+        var initVis = function(){
+
+            // instantiate the objects for visualization
+            change_graph = new ChangeGraphs(d3.select("#graph"), subjectData);
+
+        }
+
+        // call this function after both files are loaded -- error should be "null" if no error
+        var dataLoaded = function (error, _studentData) {
+
+            if (!error) {
+
+            	var allData = _studentData; 
+
+    	      	// currAvg is used to determine the average for the subject being determined
+		      	// count is then used to store this into the appropriate subject of subjectData
+		     	var currAvg = 0;
+		     	var count = 0; 
+
+		      	// subjectData holds the student's performance: math, history, science, english (in that order)
+		      	subjectData = [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]];
+
+		      	// go through each subject in the current year for the current student
+
+		      	// reaching the correct grade level
+		      	for (var gradeLevel in allData[studentValue].year){
+
+		            if(allData[studentValue].year.hasOwnProperty(gradeLevel)){
+
+		            	// reset count in case we're coming in from a previous iteration of the for loop
+		            	count = 0;
+
+		            	// reaching the individual subjects
+		            	for(var subject in allData[studentValue].year[gradeLevel].grades){
+		            		
+		            		if(allData[studentValue].year[gradeLevel].grades.hasOwnProperty(subject)){
+
+		            			// hwCount keeps track of how many assignments are in the subject
+		            			var hwCount = 0;
+
+		            			// reaching the assignments in each subject
+		            			for(var number in allData[studentValue].year[gradeLevel].grades[subject]){
+
+		            				if(allData[studentValue].year[gradeLevel].grades[subject].hasOwnProperty(number)){
+
+		            					hwCount++;
+
+		            					currAvg += allData[studentValue].year[gradeLevel].grades[subject][number];
+		            				}
+		            			}
+
+		            			subjectData[count][gradeLevel] = currAvg/hwCount;
+
+		            			// prepare to find average for the next subject in the grade
+		            			currAvg = 0;
+		            			count++;
+
+
+		            		}
+		            	}
+		            	
+		            }
+
+		      	}
+
+        	}
+
+            
+            initVis();
+        }
+
+	    var startLoad = function(){
+
+	        //load data here and call "dataLoaded" afterwards
+	        queue()
+	            .defer(d3.json, 'data/studentData.json')
+	            .await(dataLoaded);
+	    }
+
+	   	var updateVis = function(selection)
+	    {
+	    	change_graph.onSelectionChange(selection);
+
+	    }
+
+	    startLoad();	
 	</script>
 </head>
 
@@ -95,24 +193,15 @@
 			<a href="grades.html">Back</a>
 		</div>
 
-		<div id="time" style="padding-top:10px">
-			<form id="timeSelector">
-				<input type="checkbox" name="grade" value="total">All
-				<input type="checkbox" name="grade" value="one">Grade 1
-				<input type="checkbox" name="grade" value="two">Grade 2
-				<input type="checkbox" name="grade" value="three">Grade 3
-			</form>
-		</div>
 		<div id="subject" style="padding-top:10px; float:left"	>
 				<form id="subjectSelector">
-					<input type="checkbox" name="subject" value="math" style="float:left"><label style="float:left">Math</label><br /><br />
-					<input type="checkbox" name="subject" value="history" style="float:left"><label style="float:left">History</label><br /><br />
-					<input type="checkbox" name="subject" value="science" style="float:left"><label style="float:left">Science</label><br /><br />
-					<input type="checkbox" name="subject" value="english" style="float:left"><label style="float:left">English</label><br /><br />
+					<input type="checkbox" name="subject" value="math" style="float:left" onchange="updateVis(0)" checked><label style="float:left">Math</label><br /><br />
+					<input type="checkbox" name="subject" value="history" style="float:left" onchange="updateVis(1)" checked><label style="float:left">History</label><br /><br />
+					<input type="checkbox" name="subject" value="science" style="float:left" onchange="updateVis(2)" checked><label style="float:left">Science</label><br /><br />
+					<input type="checkbox" name="subject" value="english" style="float:left" onchange="updateVis(3)" checked><label style="float:left">English</label><br /><br />
 				</form>
 		</div>
 		<div id="graph">
-			Graph goes here.
 		</div>
 	</div>
 </body>

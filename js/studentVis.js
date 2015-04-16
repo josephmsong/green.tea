@@ -79,8 +79,6 @@ ClassGraphs.prototype.updateVis = function(){
 
     this.y.domain([85, d3.max(this.displayData)]);
 
-    console.log(this.displayData);
-
     // updates axis
     this.svg.select(".x.axis")
         .call(this.xAxis)
@@ -132,8 +130,6 @@ ClassGraphs.prototype.wrangleData = function (yearSelected){
 
       var currYear = 2 - yearSelected;
 
-      console.log("currYear: " + currYear);
-
       // student subject order is math, history, science, english
 
       // currAvg is used to determine the average for the subject being determined
@@ -182,8 +178,6 @@ ClassGraphs.prototype.wrangleData = function (yearSelected){
 ClassGraphs.prototype.onSelectionChange= function (yearSelected){
 
     this.displayData = this.wrangleData(yearSelected);
-
-    console.log("yearSelected: " + yearSelected);
 
     this.updateVis();
 
