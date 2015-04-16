@@ -47,7 +47,7 @@
 		.student {
 			margin-left:5px;
 			margin-top:5px;
-			float:left;
+			float:center;
 		}
 		.graph {
 			border-style:solid;
@@ -117,18 +117,26 @@
 				<label class="student">Student 5</label>
 				<a href="student.html" style="float:right;color:red;margin-top:60px;margin-right:5px;font-size:80%">View Profile</a>
 			</div> -->
+			<div class="cont">
 			<script type="text/javascript">
 				$(function(){
-        		$.getJSON('data/studentData.json',function(data){
+        		$.getJSON('data/studentData.json',function(dat){
             		console.log('success');
-            		$.each(data,function(i,stud){
-                		$('ul').append('<li>'+stud.firstName+' '+stud.lastName+'</li>');
+            		$.each(dat,function(index, stud){
+            			var a = document.createElement("img");
+						a.src = stud.picture;
+						a.height = 150;
+						a.width = 150;
+            			$( ".cont" ).append( "<div class=student id=" + index + "></div>");
+            			$( "#" + index).append("<a href='student.html?id=" + index + "'>" + stud.name + "</a><br>");
+            			$( "#" + index).append(a);
             		});
         		}).error(function(){
             		console.log('error');
        			});
    			});
 			</script>
+			</div>
 		</div>
 		<div class="middle">
 			<label style="display:block;margin:auto;font-size:125%;font-weight:bold">Styles of Learning</label>

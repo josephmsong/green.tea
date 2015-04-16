@@ -29,6 +29,7 @@
 
 	<div class = "container">
 
+
 		<div class = "row">
 
 			<div class = "col-md-4">
@@ -38,7 +39,6 @@
 				</p>
 				<p>
 					<div id = "studentName" style = "font-size: 30px">
-						<h2><b> JOSEPH SONG </b></h2>
 					</div>
 					<br>
 					<div id = "studentGrade"> 
@@ -183,7 +183,6 @@
 			</div>
 
 		</div>
-
 		<div class = "row">
 			<div class = "col-md-4">
 				<br>
@@ -196,8 +195,39 @@
 				<div style = "text-align: right"> <a href = "teacher.html">View details</a> </div>
 			</div>
 		</div> 
+		<script type="text/javascript">
+				$.urlParam = function(name){
+				    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+				    if (results==null){
+				       return null;
+				    }
+				    else{
+				       return results[1] || 0;
+				    }
+				}
+				$(function(){
+        		$.getJSON('data/studentData.json',function(dat){
+            		console.log('success');
+            		var id = $.urlParam('id');
+            		var student = dat[id];
+            		console.log(student.name);
+            		$("#studentName").html("<h2><b>" + student.name + "</h2></b>")
+            		$("#studentGrade").html("<b>" + student.name + "</b>")
 
-
+            		/*$.each(dat,function(index, stud){
+            			var a = document.createElement("img");
+						a.src = stud.picture;
+						a.height = 150;
+						a.width = 150;
+            			$( ".cont" ).append( "<div class=student id=" + index + "></div>");
+            			$( "#" + index).append("<a href='student.html?id=" + index + "'>" + stud.name + "</a><br>");
+            			$( "#" + index).append(a);
+            		});*/
+        		}).error(function(){
+            		console.log('error');
+       			});
+   			});
+		</script>
 	</div>
 
 </body>
