@@ -7,7 +7,7 @@ ClassGraphs = function(_parentElement, _data, _allData){
     this.labelNames = ["math", "history", "science", "english"]
 
     // define all "constants" here
-    this.margin = {top: 20, right: 20, bottom: 40, left: 50},
+    this.margin = {top: 40, right: 20, bottom: 40, left: 50},
     this.width = 600 - this.margin.left - this.margin.right,
     this.height = 210 - this.margin.top - this.margin.bottom;
 
@@ -55,11 +55,11 @@ ClassGraphs.prototype.initVis = function(){
     this.svg.append("g")
         .attr("class", "y axis")
       .append("text")
-        .attr("x", 65)
-        .attr("y", -17)
+        .attr("x", 90)
+        .attr("y", -25)
         .attr("dy", ".71em")
         .style("text-anchor", "end")
-        .text("Learning Styles");
+        .text("Subject Breakdown");
 
     // filter, aggregate, modify data
     this.displayData = this.data;
