@@ -47,13 +47,13 @@
 				</p>
 
 				<h3 style = "text-align:center">Grade Report</h3>
-				<table>
+				<table id="grades">
 				  <tr>
 				  	<th style="width:400px"></th>
 				  	<th style="width:50px"></th>
 				  </tr>
 
-				  <tr>
+				  <!--<tr>
 				    <td><b>Grade 2</b></td>
 				    <td><br></td>
 				  </tr>
@@ -105,7 +105,7 @@
   				  <tr>
 				    <td>Science</td>
 				    <td>B</td>
-				  </tr>
+				  </tr>-->
 
 				</table>
 			</div>
@@ -206,6 +206,27 @@
 				    }
 				}
 
+				function avg_to_grade(avg) {
+					var grade = '';
+					if (avg > 90)
+						grade = 'A'
+					else if (avg > 80)
+						grade = 'B'
+					else if (avg > 70)
+						grade = 'C'
+					else if (avg > 60)
+						grade = 'D'
+					else
+						grade = 'E'
+					if (avg % 10 > 6)
+						grade += '+'
+				    else if (avg % 10 < 4)
+				    	grade += '-'
+					return grade
+				}
+				function capitalize(string) {
+    				return string.charAt(0).toUpperCase() + string.slice(1);
+				}
 				$(function(){
         		$.getJSON('data/studentData.json',function(dat){
             		console.log('success');
@@ -219,9 +240,21 @@
             		var teacher = student.year[0].teacher;
             		console.log(student.year[0].comments);
             		$.each((student.year[0]).comments, function(key, value){
-            			$("#comments").append("<tr><td><b>" + key + "</b></td><td><br></td></tr>");
+            			$("#comments").append("<tr><td><b>" + capitalize(key) + "</b></td><td><br></td></tr>");
             			$("#comments").append("<tr><td>"+ value + "</td><td>-"+ teacher + "</td></tr>");
             			$("#comments").append("<tr><td><br></td></tr>");
+            		})
+            		$("#grades").append("<tr><td><b>"+teacher+"</b></td><td><br></td></tr>")
+            		console.log(teacher)
+            		$.each((student.year[0]).grades, function(key,value){
+            			var num_grades = 0
+            			var total_grades = 0
+            			for (var k in value){
+            				num_grades += 1;
+            				total_grades += value[k];
+            			} 
+            			avg = total_grades / num_grades;
+            			$("#grades").append("<tr><td>"+capitalize(key)+"</td><td>"+avg_to_grade(avg)+"</td></tr>")
             		})
             		/*$.each(dat,function(index, stud){
             			var a = document.createElement("img");
