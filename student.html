@@ -186,13 +186,13 @@
 		<div class = "row">
 			<div class = "col-md-4">
 				<br>
-				<div style = "text-align: right"> <a href = "grades.html">View details</a> </div>
+				<div style = "text-align: right"> <a id = "gradesLink" href = "grades.html">View details</a> </div>
 
 			</div>
 
 			<div class = "col-md-8">
 				<br>
-				<div style = "text-align: right"> <a href = "teacher.html">View details</a> </div>
+				<div style = "text-align: right"> <a id = "commentsLink" href = "teacher.html">View details</a> </div>
 			</div>
 		</div> 
 		<script type="text/javascript">
@@ -205,12 +205,14 @@
 				       return results[1] || 0;
 				    }
 				}
+
 				$(function(){
         		$.getJSON('data/studentData.json',function(dat){
             		console.log('success');
             		var id = $.urlParam('id');
+            		$("#gradesLink").attr("href", function(){return "grades.html?id=" +id;});
+            		$("#commentsLink").attr("href", function(){return "teacher.html?id=" +id;});
             		var student = dat[id];
-            		console.log(student.name);
             		$("#studentName").html("<h2><b>" + student.name + "</h2></b>");
             		// $("#studentGrade").html("<b>" + student.name + "</b>");
             		$("img").attr('src', student.picture);

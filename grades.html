@@ -140,11 +140,41 @@
 	<script>
 
 	var mathShow = false, histShow = false, sciShow = false, engShow = false;
-	var string = "Joseph";
+	var string;
 	var student;
 	var graphVis;
 
-	update(0,string);
+	$.urlParam = function(name){
+	    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+	    if (results==null){
+	       return null;
+	    }
+	    else{
+	       return results[1] || 0;
+	    }
+	}
+
+	var urlID = $.urlParam('id');
+
+	console.log(urlID)
+
+	switch(urlID){
+		case "0":
+			string = "Joseph";
+			break;
+
+		case "1":
+			string = "Roseanne";
+			break;
+
+		case "2": 
+			string = "Lilly";
+			break;
+
+		default:
+			string = "Joseph";
+			break;
+	}
 
 	function update (grade, string) {
 		d3.json("data/studentData.json", function(error, data) {
@@ -153,15 +183,19 @@
 			d3.selectAll(".overall").remove()
 			d3.selectAll(".list").remove()
 
-			if (string = "Joseph") {
+			if (string == "Joseph") {
 				student = data[0]
 			}
-			else if (string = "Roseanne") {
+			else if (string == "Roseanne") {
 				student = data[1]
 			}
 			else {
 				student = data[2]
 			}
+
+			// update the link to reference the correct student
+			$("#analysisLink").attr("href", function(){return "change.html?id=" +urlID;});
+			$("#backButton").attr("href", function(){return "student.html?id=" +urlID;});
 
 			d3.select("#graph").append("div").attr("class","bar")
 			graphVis = new ClassGraphs(d3.select(".bar"), student);
@@ -408,6 +442,8 @@
 		return;
 
 	}
+
+	update(0,string);
 	
 	</script>
 </head>
@@ -425,7 +461,7 @@
 		</select>
 		</div>
 		<div id = "back">
-			<a href = "student.html" style ="font-size:15px;padding-left:2px">Back to Student Profile</a>
+			<a id = "backButton" href = "student.html" style ="font-size:15px;padding-left:2px">Back to Student Profile</a>
 		</div>
 		<div id = "overview">
 			<div id = "weaknesses" style="top:8.2%; height:22%; width:45%; left:5%">
@@ -469,7 +505,7 @@
 					<div id="math" class ="numeric eng" style="float:right"></div>
 			</div>
 			<br clear="all">
-			<a style="margin-left:20px;"type="btn btn-xs" href="change.html">View analysis</a>
+			<a id = "analysisLink" style="margin-left:20px;"type="btn btn-xs" href="change.html">View analysis</a>
 			</div>
 
 			<div id = "graph" style="top:46%; width:45.4%;left:5%;height:30.3%;padding-top:40px">

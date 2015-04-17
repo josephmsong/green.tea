@@ -95,8 +95,20 @@
 	<script>
 	
 	var blob;
+
+	$.urlParam = function(name){
+	    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+	    if (results==null){
+	       return null;
+	    }
+	    else{
+	       return results[1] || 0;
+	    }
+	}
 	
-	var id = 0;
+	var id = $.urlParam('id');
+	
+
 	var name, teacher;
 	var comments = [];
 	var years = 0; 
@@ -122,6 +134,7 @@
 	function loadComments() {
 		student = blob[id];
 		name = student["name"];
+		$("#backButton").attr("href", function(){return "student.html?id=" +id;});
 		yearInd = Object.keys(student["year"]);
 		years = yearInd.length;
 		teacher = blob[id]["year"][yearInd[years-1]]["teacher"];
@@ -248,7 +261,7 @@
 		Teacher Comments <br />
 		</div>
 		<div id = "back" style="padding-top:5px">
-			<a href="student.html"> < Back to Student Profile</a>
+			<a id = "backButton" href="student.html"> < Back to Student Profile</a>
 		</div>
 		<div id = "comments">
 			<p class="header">Teacher Comments</p>

@@ -90,13 +90,46 @@
         var change_graph;
 
         // studentValue is the index of the student who we are looking at for this analysis
-        var studentValue = 0;
+        $.urlParam = function(name){
+		    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+		    if (results==null){
+		       return null;
+		    }
+		    else{
+		       return results[1] || 0;
+		    }
+		}
+
+		var studentValue = $.urlParam('id');
+		var studentName;
+
+		switch(studentValue){
+			case "0":
+				studentName = "Joseph Song";
+				break;
+
+			case "1":
+				studentName = "Roseanne Feng";
+				break;
+
+			case "2": 
+				studentName = "Lilly Shen";
+				break;
+
+			default:
+				studentName = "Joseph Song";
+				break;
+		}
 
         // call this function after data is loaded, reformatted and bound to the variables
         var initVis = function(){
 
             // instantiate the objects for visualization
             change_graph = new ChangeGraphs(d3.select("#graph"), subjectData);
+
+            // update the name and the back button
+            d3.select(".name").text(studentName)
+            $("#backButton").attr("href", function(){return "grades.html?id=" +studentValue;});
 
         }
 
@@ -185,12 +218,12 @@
 <body>
 	<div id = "dashboard">
 		<div id = "header" style="padding-top:14px">
-		JOSEPH SONG <br />
+		<label class="name"> </label> <br />
 		Performance Over Time <br />
 		</div>
 
 		<div id = "back" style="padding-left:5px; padding-top:5px">
-			<a href="grades.html">Back</a>
+			<a id = "backButton" href="grades.html">Back</a>
 		</div>
 
 		<div id="subject" style="padding-top:10px; float:left"	>
