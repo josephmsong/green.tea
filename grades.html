@@ -131,6 +131,14 @@
 		font-family: Helvetica, sans-serif;
 		background-color: #d3d3d3
 	}
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+	}
+	li {
+		display: inline;
+	}
 	</style>
 
 	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
@@ -450,6 +458,13 @@
 
 <body>
 	<div id = "dashboard">
+		<div id = "navigation" style="text-align: center">
+			<ul>
+				<li> <a href="student.html">student profile</a></li> |
+				<li> grades</li> |
+				<li> <a href="teacher.html">comments</a></li>
+			</ul>
+		</div>
 		<div id = "header">
 		<br>
 		<label class="name"> </label><br />
