@@ -131,12 +131,12 @@
 		font-family: Helvetica, sans-serif;
 		background-color: #d3d3d3
 	}
-	ul {
+	.navigation {
 		list-style-type: none;
 		margin: 0;
 		padding: 0;
 	}
-	li {
+	.item {
 		display: inline;
 	}
 	</style>
@@ -458,11 +458,11 @@
 
 <body>
 	<div id = "dashboard">
-		<div id = "navigation" style="text-align: center">
-			<ul>
-				<li> <a href="student.html">student profile</a></li> |
-				<li> grades</li> |
-				<li> <a href="teacher.html">comments</a></li>
+		<div style="text-align: center">
+			<ul class="navigation">
+				<li class="item"> <a href="student.html">student profile</a></li> |
+				<li class="item"> grades</li> |
+				<li class="item"> <a href="teacher.html">comments</a></li>
 			</ul>
 		</div>
 		<div id = "header">
