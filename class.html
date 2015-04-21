@@ -121,7 +121,7 @@
 			<script type="text/javascript">
 				$(function(){
         		$.getJSON('data/studentData.json',function(dat){
-            		console.log('success');
+
             		$.each(dat,function(index, stud){
             			var a = document.createElement("img");
 						a.src = stud.picture;
@@ -162,15 +162,15 @@
 			</div>
 		</div>
 		<br/>
-<!-- 		<form>
+		<form>
 			<div class="choices">
 				<input type="radio" class="choice" name="subject" onchange='passUpdate("All")' checked>All</input>
-				<input type="radio" class="choice" name="subject" onchange='passUpdate("English")'>English</input>
-				<input type="radio" class="choice" name="subject" onchange='passUpdate("History")'>History</input>
 				<input type="radio" class="choice" name="subject" onchange='passUpdate("Math")'>Math</input>
+				<input type="radio" class="choice" name="subject" onchange='passUpdate("History")'>History</input>
 				<input type="radio" class="choice" name="subject" onchange='passUpdate("Science")'>Science</input>
+				<input type="radio" class="choice" name="subject" onchange='passUpdate("English")'>English</input>
 			</div>
-		</form> -->
+		</form>
 	</div>
 
     <script>
@@ -178,6 +178,7 @@
         // variables keeping global knowledge of the data
         var studentData = [];
         var subjectData = [];
+        var assignmentData = [];
         var allData = [];
         var learning_graphs;
         var subject_graphs;
@@ -189,7 +190,7 @@
 
             // instantiate the objects for visualization
             learning_graphs = new LearningGraphs(d3.select("#learningGraphs"), studentData);
-            subject_graphs = new ClassGraphs(d3.select('#subjectGraphs'), subjectData, allData);
+            subject_graphs = new ClassGraphs(d3.select('#subjectGraphs'), subjectData, assignmentData, allData);
 
             // bind the event handler
 
@@ -234,6 +235,10 @@
             	var currYear = _studentData[0].year.length - 1;
             	var avgData = [0, 0, 0, 0]
 
+            	// hwData is used to keep track of the values of averages for specific assignments within the class
+            	// order, as is convention for the rest of the code, is math, history, science, english
+            	var hwData = [{}, {}, {}, {}];
+
             	// student subject order is math, history, science, english
             	_studentData.map(function (d){
 
@@ -256,6 +261,21 @@
             				for(var grade in d.year[currYear].grades[subject]){
             					if(d.year[currYear].grades[subject].hasOwnProperty(grade)){
 
+            						console.log("grade: " + grade);
+
+            						// here, we'll update the array used to store subject breakdown data
+            						// we first check to see if the assignment already exists. if not, 
+            						// then we initialize that field of the object and set it to 0. 
+            						// if it does/afterwards, then we just update the value
+
+            						if(isNaN(hwData[count][grade])){
+
+            							console.log("sup");
+            							hwData[count][grade] = 0;
+            						}
+
+            						hwData[count][grade] += d.year[currYear].grades[subject][grade];
+
             						console.log(d.year[currYear].grades[subject][grade])
 
             						hwCount++;
@@ -265,6 +285,7 @@
 
             				avgData[count] += currAvg/hwCount;
 
+
 	            			// prepare to find the average for a new subject
 	            			currAvg = 0;
 	            			count++;
@@ -272,11 +293,22 @@
 
             		}
 
-
         		})
-
+	
 				avgData = avgData.map(function(d){return d/3});
 				subjectData = avgData;
+
+				// map over hwData to get the appropriate values
+				hwData.map(function (d){
+
+					for (var assignment in d){
+						if(d.hasOwnProperty(assignment)){
+							d[assignment] /= 3;
+						}
+					}
+				})
+
+				assignmentData = hwData;
         	}
 
             

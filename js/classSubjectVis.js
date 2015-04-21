@@ -1,10 +1,12 @@
 // D3 to show the graphs for the class page// D3 to show the graphs for the class page
 
-ClassGraphs = function(_parentElement, _data, _allData){
+ClassGraphs = function(_parentElement, _data, _assignmentData, _allData){
     this.parentElement = _parentElement;
     this.data = _data;
+    this.assignmentData = _assignmentData;
     this.displayData = [];
     this.labelNames = ["math", "history", "science", "english"]
+    this.labelHWNames = [["addition", "subtraction", "division", "multiplication"],["pledge", "constitution", "war","law"],["acids", "entropy", "elements", "animals"],["spelling", "grammar", "punctuation", "sentences"]]
 
     // define all "constants" here
     this.margin = {top: 40, right: 20, bottom: 40, left: 50},
@@ -130,6 +132,53 @@ ClassGraphs.prototype.updateVis = function(){
 */
 ClassGraphs.prototype.wrangleData = function (subjectSelected){
 
+    var that = this;
+
+    console.log(subjectSelected);
+
+    var subjectData = [0,0,0,0]
+    var subjectID = 0;
+    var count = 0;
+
+    if(subjectSelected != "All"){
+
+        switch(subjectSelected){
+            case "Math":
+                subjectID = 0;
+                break;
+            case "History":
+                subjectID = 1;
+                break;
+            case "Science":
+                subjectID = 2;
+                break;
+            case "English":
+                subjectID = 3;
+                break;
+            default:
+                subjectID = 0;
+        }
+
+        console.log(this.assignmentData[0]);
+
+        for(var assignment in this.assignmentData[subjectID]){
+            if(this.assignmentData[subjectID].hasOwnProperty(assignment)){
+
+                subjectData[count] = this.assignmentData[subjectID][assignment];
+                count++;    
+            }
+        }
+
+        this.labelNames = this.labelHWNames[subjectID];
+    }
+
+    else{
+
+        subjectData = this.data;
+        this.labelNames = ["math", "history", "science", "english"]
+    }
+
+    this.displayData = subjectData;
 
 }
 
@@ -142,7 +191,6 @@ ClassGraphs.prototype.wrangleData = function (subjectSelected){
 ClassGraphs.prototype.onSelectionChange= function (subjectSelected){
 
     this.wrangleData(subjectSelected)
-    console.log("ay")
 
     this.updateVis();
 

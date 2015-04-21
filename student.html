@@ -244,7 +244,6 @@
 				}
 				$(function(){
         		$.getJSON('data/studentData.json',function(dat){
-            		console.log('success');
             		var id = $.urlParam('id');
             		$("#gradesLink").attr("href", function(){return "grades.html?id=" +id;});
             		$("#commentsLink").attr("href", function(){return "teacher.html?id=" +id;});
@@ -253,14 +252,12 @@
             		// $("#studentGrade").html("<b>" + student.name + "</b>");
             		$("img").attr('src', student.picture);
             		var teacher = student.year[0].teacher;
-            		console.log(student.year[0].comments);
             		$.each((student.year[0]).comments, function(key, value){
             			$("#comments").append("<tr><td><b>" + capitalize(key) + "</b></td><td><br></td></tr>");
             			$("#comments").append("<tr><td>"+ value + "</td><td>-"+ teacher + "</td></tr>");
             			$("#comments").append("<tr><td><br></td></tr>");
             		})
             		$("#grades").append("<tr><td><b>"+teacher+"</b></td><td><br></td></tr>")
-            		console.log(teacher)
             		$.each((student.year[0]).grades, function(key,value){
             			var num_grades = 0
             			var total_grades = 0
