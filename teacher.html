@@ -142,7 +142,9 @@
 	function loadComments() {
 		student = blob[id];
 		name = student["name"];
-		$("#backButton").attr("href", function(){return "student.html?id=" +id;});
+		//$("#backButton").attr("href", function(){return "student.html?id=" +id;});
+		$("#profileLink").attr("href", function(){return "student.html?id=" +id;});
+		$("#gradesLink").attr("href", function(){return "grades.html?id=" +id;});
 		yearInd = Object.keys(student["year"]);
 		years = yearInd.length;
 		teacher = blob[id]["year"][yearInd[years-1]]["teacher"];
@@ -266,8 +268,8 @@
 	<div id = "dashboard">
 		<div style="text-align: center">
 			<ul class="navigation">
-				<li class="item"> <a href="student.html">student profile</a></li> |
-				<li class="item"> <a href="grades.html">grades</a></li> |
+				<li class="item"> <a id="profileLink" href="student.html">student profile</a></li> |
+				<li class="item"> <a id="gradesLink" href="grades.html">grades</a></li> |
 				<li class="item"> comments </li>
 			</ul>
 		</div>
@@ -275,9 +277,9 @@
 		JOHN DOE <br />
 		Teacher Comments <br />
 		</div>
-		<div id = "back" style="padding-top:5px">
+		<!--<div id = "back" style="padding-top:5px">
 			<a id = "backButton" href="student.html"> < Back to Student Profile</a>
-		</div>
+		</div>-->
 		<div id = "comments">
 			<p class="header">Teacher Comments</p>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus leo ante, et sollicitudin nulla eleifend nec. Vivamus eu convallis enim. Praesent eros sapien, fermentum in mollis et, maximus quis metus. Ut libero purus, semper id massa vitae, imperdiet bibendum nisi. Fusce a justo at quam posuere euismod ac non tellus. In hac habitasse platea dictumst. Nullam sollicitudin enim nunc, a placerat nisi blandit vestibulum. Pellentesque pretium quam malesuada quam feugiat pretium. Praesent placerat purus quis ipsum elementum, at hendrerit neque rutrum. Aenean purus lorem, bibendum sed feugiat vitae, aliquet vel mauris. Curabitur nec nulla ac mi sagittis suscipit quis non urna.</p>

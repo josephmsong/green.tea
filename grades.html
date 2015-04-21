@@ -203,8 +203,10 @@
 
 			// update the link to reference the correct student
 			$("#analysisLink").attr("href", function(){return "change.html?id=" +urlID;});
-			$("#backButton").attr("href", function(){return "student.html?id=" +urlID;});
-
+			//$("#backButton").attr("href", function(){return "student.html?id=" +urlID;});
+			$("#profileLink").attr("href", function(){return "student.html?id=" +urlID;});
+            $("#commentsLink").attr("href", function(){return "teacher.html?id=" +urlID;});
+            		
 			d3.select("#graph").append("div").attr("class","bar")
 			graphVis = new ClassGraphs(d3.select(".bar"), student);
 
@@ -460,9 +462,9 @@
 	<div id = "dashboard">
 		<div style="text-align: center">
 			<ul class="navigation">
-				<li class="item"> <a href="student.html">student profile</a></li> |
+				<li class="item"> <a id="profileLink" href="student.html">student profile</a></li> |
 				<li class="item"> grades</li> |
-				<li class="item"> <a href="teacher.html">comments</a></li>
+				<li class="item"> <a id="commentsLink" href="teacher.html">comments</a></li>
 			</ul>
 		</div>
 		<div id = "header">
