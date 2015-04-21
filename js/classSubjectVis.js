@@ -9,7 +9,7 @@ ClassGraphs = function(_parentElement, _data, _assignmentData, _allData){
     this.labelHWNames = [["addition", "subtraction", "division", "multiplication"],["pledge", "constitution", "war","law"],["acids", "entropy", "elements", "animals"],["spelling", "grammar", "punctuation", "sentences"]]
 
     // define all "constants" here
-    this.margin = {top: 40, right: 20, bottom: 40, left: 50},
+    this.margin = {top: 40, right: 20, bottom: 60, left: 50},
     this.width = 600 - this.margin.left - this.margin.right,
     this.height = 210 - this.margin.top - this.margin.bottom;
 
@@ -44,6 +44,7 @@ ClassGraphs.prototype.initVis = function(){
     this.yAxis = d3.svg.axis()
       .scale(this.y)
       .orient("left")
+      .ticks(7)
       .tickFormat(d3.format(",.0f"));
 
     this.xAxis = d3.svg.axis()
@@ -81,7 +82,7 @@ ClassGraphs.prototype.updateVis = function(){
     // ...update scales
     this.x.domain([0,1,2,3]);
 
-    this.y.domain([85, d3.max(this.displayData)]);
+    this.y.domain([d3.min(this.displayData) - 2, d3.max(this.displayData)]);
 
     console.log(this.displayData);
 
