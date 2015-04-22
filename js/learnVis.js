@@ -7,7 +7,7 @@ LearningGraphs = function(_parentElement, _data){
     this.labelNames = ["visual", "auditory", "kinesthetic"]
 
     // define all "constants" here
-    this.margin = {top: 40, right: 20, bottom: 60, left: 50},
+    this.margin = {top: 50, right: 20, bottom: 60, left: 70},
     this.width = 300 - this.margin.left - this.margin.right,
     this.height = 210 - this.margin.top - this.margin.bottom;
 

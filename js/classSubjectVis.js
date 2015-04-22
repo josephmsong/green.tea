@@ -9,7 +9,7 @@ ClassGraphs = function(_parentElement, _data, _assignmentData, _allData){
     this.labelHWNames = [["addition", "subtraction", "division", "multiplication"],["pledge", "constitution", "war","law"],["acids", "entropy", "elements", "animals"],["spelling", "grammar", "punctuation", "sentences"]]
 
     // define all "constants" here
-    this.margin = {top: 40, right: 20, bottom: 60, left: 50},
+    this.margin = {top: 50, right: 20, bottom: 60, left: 80},
     this.width = 600 - this.margin.left - this.margin.right,
     this.height = 210 - this.margin.top - this.margin.bottom;
 

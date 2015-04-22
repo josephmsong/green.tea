@@ -8,11 +8,17 @@
 	    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
 	    <script src="libs/bootstrap/js/bootstrap.min.js" charset="utf-8"></script>
 	    <script src="http://d3js.org/queue.v1.min.js"></script>
-
+		<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 		<style>
 		body{
-			font-family: "Trebuchet MS", Helvetica, sans-serif;
+			font-family: 'Montserrat', sans-serif;
 			
+		}
+		.logout{
+		text-align: right;
+		font-size: large;
+		margin-right: 10vw;
+		top:5vw;
 		}
 		.container {
 			width: 100vw; 
@@ -30,6 +36,8 @@
 			float:left;
 			width:250px;
 			margin-left:50px;
+			text-align: center;
+			font-family: 'Montserrat', sans-serif;
 
 		}
 		.middle {
@@ -74,6 +82,11 @@
 		.choice {
 			margin-left: 30px;
 		}
+		.learningGraphs{
+			display: block;
+    		margin-left: auto;
+    		margin-right: auto;
+		}
 		img{
 			border:1px solid #;
 			-webkit-border-radius: 10px;
@@ -83,6 +96,7 @@
     		margin-left: auto;
     		margin-right: auto
 		}
+		
 		</style>
 
 		<script src = "js/learnVis.js"></script>
@@ -90,8 +104,12 @@
 	</head>
 
 	<div class = "container">
+		
 		<label style="display:block;text-align:center;margin:auto;font-size:300%;font-weight:bold">RIVET</label>
 		<label style="display:block;text-align:center;margin:auto;font-size:125%;font-weight:bold">Mrs. Smith</label>
+		<div class = "logout">
+			<a href = "index.html"> Logout </a>
+		</div>
 		<div class="leftnav" style="height:30px">
 			<div style="margin-left:5px;margin-top:8px;color:black">Search for a student...</div>
 		</div>
@@ -149,7 +167,7 @@
 			</div>
 		</div>
 		<div class="middle">
-			<label style="display:block;margin:auto;font-size:125%;font-weight:bold">Styles of Learning</label>
+			<label style="display:inline-block;margin:auto;font-size:125%;font-weight:bold">Styles of Learning</label>
 			<div class="graph" id="learningGraphs">
 			</div>
 		</div>
