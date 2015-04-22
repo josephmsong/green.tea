@@ -13,12 +13,15 @@
 		body{
 			font-family: 'Montserrat', sans-serif;
 			
+
 		}
 		.logout{
 		text-align: right;
 		font-size: large;
 		margin-right: 10vw;
-		top:5vw;
+		top:0vw;
+		float:right;
+		width: 10vw
 		}
 		.container {
 			width: 100vw; 
@@ -29,6 +32,9 @@
 		    position: absolute;
 		    top:0;bottom:0; /* vertical center */
 		    left:0;right:0; /* horizontal center */
+		    display:inline-block;
+		    /*color:#00115E;*/
+			
 		}
 		.leftnav {
 			border-style:solid;
@@ -42,7 +48,9 @@
 		}
 		.middle {
 			float:left;
-			margin-left:30px;
+			display:inline-block;
+			margin-left: 30px;
+			top:10vw;
 		}
 		.right {
 			float:left;
@@ -96,6 +104,13 @@
     		margin-left: auto;
     		margin-right: auto
 		}
+		a{
+			color:#2A62AB;
+			text-decoration: none;
+		}
+		a:visited {
+    		color: #6A62AB;
+		}
 		
 		</style>
 
@@ -104,17 +119,20 @@
 	</head>
 
 	<div class = "container">
+		<div style="display:block;text-align:center;margin:auto;">
+		<label style="font-size:300%;font-weight:bold">RIVET</label>
+		</div>
+		<div style="text-align:center;display: block;margin-left: auto;margin-right: auto;width=15vw">
+		<label style="font-size:125%;font-weight:bold">Mrs. Smith</label>
+		</div>
 		
-		<label style="display:block;text-align:center;margin:auto;font-size:300%;font-weight:bold">RIVET</label>
-		<label style="display:block;text-align:center;margin:auto;font-size:125%;font-weight:bold">Mrs. Smith</label>
 		<div class = "logout">
 			<a href = "index.html"> Logout </a>
 		</div>
-		<div class="leftnav" style="height:30px">
-			<div style="margin-left:5px;margin-top:8px;color:black">Search for a student...</div>
-		</div>
+		
 		<br/><br/><br/>
 		<div class="leftnav" style="height:550px">
+			<!-- <div style="margin-left:5px;margin-top:8px;color:black">Search for a student...</div> -->
 			<!-- <div class="student">
 				<div class="student"><img src="propic.jpeg" style="height:80px;
 				width:90px"></img></div>
@@ -167,7 +185,7 @@
 			</div>
 		</div>
 		<div class="middle">
-			<label style="display:inline-block;margin:auto;font-size:125%;font-weight:bold">Styles of Learning</label>
+			<label style="font-size:125%;font-weight:bold">Styles of Learning</label>
 			<div class="graph" id="learningGraphs">
 			</div>
 		</div>
