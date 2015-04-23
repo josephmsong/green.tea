@@ -9,9 +9,9 @@ ClassGraphs = function(_parentElement, _data, _assignmentData, _allData){
     this.labelHWNames = [["addition", "subtraction", "division", "multiplication"],["pledge", "constitution", "war","law"],["acids", "entropy", "elements", "animals"],["spelling", "grammar", "punctuation", "sentences"]]
 
     // define all "constants" here
-    this.margin = {top: 50, right: 20, bottom: 60, left: 80},
+    this.margin = {top: 50, right: 20, bottom: 65, left: 80},
     this.width = 600 - this.margin.left - this.margin.right,
-    this.height = 210 - this.margin.top - this.margin.bottom;
+    this.height = 200 - this.margin.top - this.margin.bottom;
 
     this.initVis();
 }
@@ -44,7 +44,7 @@ ClassGraphs.prototype.initVis = function(){
     this.yAxis = d3.svg.axis()
       .scale(this.y)
       .orient("left")
-      .ticks(7)
+      .ticks(6)
       .tickFormat(d3.format(",.0f"));
 
     this.xAxis = d3.svg.axis()
@@ -95,7 +95,7 @@ ClassGraphs.prototype.updateVis = function(){
         	.attr("x", -21)
         	.attr("y", -24)
         	.attr("dy", "0.15em")
-        	.attr("font-size", "65%")
+        	.attr("font-size", "55%")
         	.attr("transform", function(d){
         		return "rotate(-65)";
         	});

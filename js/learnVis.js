@@ -7,7 +7,7 @@ LearningGraphs = function(_parentElement, _data){
     this.labelNames = ["visual", "auditory", "kinesthetic"]
 
     // define all "constants" here
-    this.margin = {top: 50, right: 20, bottom: 60, left: 70},
+    this.margin = {top: 25, right: 20, bottom: 60, left: 60},
     this.width = 300 - this.margin.left - this.margin.right,
     this.height = 210 - this.margin.top - this.margin.bottom;
 
@@ -59,7 +59,7 @@ LearningGraphs.prototype.initVis = function(){
         .attr("y", -25)
         .attr("dy", ".71em")
         .style("text-anchor", "end")
-        .text("Learning Styles");
+        // .text("Learning Styles");
 
     // filter, aggregate, modify data
     this.displayData = this.data;

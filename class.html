@@ -9,10 +9,17 @@
 	    <script src="libs/bootstrap/js/bootstrap.min.js" charset="utf-8"></script>
 	    <script src="http://d3js.org/queue.v1.min.js"></script>
 		<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Nixie+One|Arvo|Josefin+Slab' rel='stylesheet' type='text/css'>
 		<style>
+
 		body{
 			font-family: 'Montserrat', sans-serif;
+			background: linear-gradient(0deg, rgba(2,70,188,0.8), rgba(2,70,188,0.6)), url("subtle_dots.png") repeat;
+
 			
+			color:#F4F4F2;
+			height: 100vh;
+
 
 		}
 		.logout{
@@ -20,44 +27,65 @@
 		font-size: large;
 		margin-right: 10vw;
 		top:0vw;
-		float:right;
 		width: 10vw
 		}
 		.container {
-			width: 100vw; 
-		    height: 56.25vw; /* height:width ratio = 9/16 = .5625  */
+			/*width: 100vw; 
+		    height: 56.25vw;  height:width ratio = 9/16 = .5625  
 		    max-height: 100vh;
-		    max-width: 177.78vh; /* 16/9 = 1.778 */
+		    max-width: 177.78vh; /* 16/9 = 1.778 */*/
 		    margin: auto;
 		    position: absolute;
-		    top:0;bottom:0; /* vertical center */
+		    top:7vh; /* vertical center */
 		    left:0;right:0; /* horizontal center */
 		    display:inline-block;
 		    /*color:#00115E;*/
+		    text-align: center;
 			
 		}
 		.leftnav {
 			border-style:solid;
-			border-width:1px;
-			float:left;
-			width:250px;
-			margin-left:50px;
+			border-width:none;
 			text-align: center;
 			font-family: 'Montserrat', sans-serif;
+			-webkit-border-radius: 10px;
+			-moz-border-radius: 10px;
+			border-radius: 10px;
+			height: 70vh;
+			background-color: rgba(195,255,227,.3);
+			border-color: rgba(244, 244, 242, 0);
+			box-shadow: 5px 5px 2px rgba(68,68,68,0.4);
+
+		}
+		.rightnav{
+			position: absolute;
+			top:5vh;
+			left:85vw;
+			text-align: right;
+			font-family: 'Montserrat', sans-serif;
+
+
+		}
+		.leftnavcontainer{
+			float:left;
+			width:200px;
+			
+			margin-left:80px;
+			
 
 		}
 		.middle {
 			float:left;
 			display:inline-block;
-			margin-left: 30px;
-			top:10vw;
+			margin-left: 40px;
 		}
 		.right {
 			float:left;
-			margin-left:100px;
+			margin-left:70px;
+
 		}
 		.bottom {
-			margin-left:30px;
+			margin-left:0px;
 			margin-top:10px;
 			float:left;
 		}
@@ -67,28 +95,42 @@
 			float:center;
 		}
 		.graph {
-			border-style:solid;
-			border-width:1px;
+			border-style: solid;
+			border-color:rgba(244, 244, 242,0);
 			width:300px;
-			height:225px;
+			height:190px;
+			-webkit-border-radius: 10px;
+			-moz-border-radius: 10px;
+			border-radius: 10px;
+			/*background-color: rgba(244, 244, 242, .3);*/
+			background-color: rgba(195,255,227,.3);	
+			box-shadow: 5px 5px 2px rgba(68,68,68,0.4);
 		}
 		.botgraph {
-			border-style:solid;
-			border-width:1px;
-			height:250px;
-			width:705px;
+			height:220px;
+			width:680px;
+			border-style: solid;
+			border-color:rgba(244, 244, 242, 0);
+			-webkit-border-radius: 10px;
+			-moz-border-radius: 10px;
+			border-radius: 10px;
+			/*background-color: rgba(244, 244, 242, .3);*/
+			background-color: rgba(195,255,227,.3);	
+			box-shadow: 5px 5px 2px rgba(68,68,68,0.4);
+			margin-left: 40px;
 		}
 		.weaknesses {
-			font-size:110%;
+			font-size:100%;
 		}
 		.choices {
 			display:inline-block;
 			margin-top:10px;
 			float:left;
+			margin-left: 100px;
 			font-size:110%;
 		}
 		.choice {
-			margin-left: 30px;
+			margin-left: 40px;
 		}
 		.learningGraphs{
 			display: block;
@@ -105,33 +147,73 @@
     		margin-right: auto
 		}
 		a{
-			color:#2A62AB;
+			color:#F4F4F2;
 			text-decoration: none;
 		}
-		a:visited {
-    		color: #6A62AB;
+		a:hover {
+    		color: rgb(220,220,255);
 		}
+		@font-face {
+    		font-family: lovelo;
+    		src: url(LoveloBlack.otf);
+		}
+		ul{
+			color:#F4F4F2;
+			text-align: left;
+		}
+		[type="radio"] + span {
+		  display: block;
+		}
+
+		/* the basic, unchecked style */
+		[type="radio"] + span:before {
+		  content: '';
+		  display: inline-block;
+		  width: 1em;
+		  height: 1em;
+		  vertical-align: -0.25em;
+		  border-radius: 1em;
+		  border: 0.125em solid #fff;
+		  box-shadow: 0 0 0 0.15em #000;
+		  margin-right: 0.75em;
+		  transition: 0.5s ease all;
+		}
+
+		/* the checked style using the :checked pseudo class */
+		[type="radio"]:checked + span:before {
+		  background: green;
+		  box-shadow: 0 0 0 0.25em #000;
+		}
+
+		/* never forget focus styling */
+		[type="radio"]:focus + span:after {
+		  content: '\0020\2190';
+		  font-size: 1.5em;
+		  line-height: 1;
+		  vertical-align: -0.125em;
+		}
+
 		
 		</style>
 
 		<script src = "js/learnVis.js"></script>
 		<script src = "js/classSubjectVis.js"></script>
 	</head>
-
+	<body>
 	<div class = "container">
-		<div style="display:block;text-align:center;margin:auto;">
-		<label style="font-size:300%;font-weight:bold">RIVET</label>
+		<div style="display:inline-block;text-align:center;margin-left:auto;margin-right:auto;width=30vw">
+		<label style="font-size:350%; font-style:bold;font-family:'Josefin Slab', serif">RIVET</label>
 		</div>
-		<div style="text-align:center;display: block;margin-left: auto;margin-right: auto;width=15vw">
-		<label style="font-size:125%;font-weight:bold">Mrs. Smith</label>
-		</div>
-		
-		<div class = "logout">
+		<div class="rightnav">
+			<label style="font-size:125%;font-weight:bold">Mrs. Smith</label> <br>
 			<a href = "index.html"> Logout </a>
 		</div>
+		<br>
+		<br>
 		
-		<br/><br/><br/>
-		<div class="leftnav" style="height:550px">
+		<div class="leftnavcontainer">
+		<label style="display:block;margin:auto;font-size:125%;font-weight:bold">Students</label>
+		<div class="leftnav">
 			<!-- <div style="margin-left:5px;margin-top:8px;color:black">Search for a student...</div> -->
 			<!-- <div class="student">
 				<div class="student"><img src="propic.jpeg" style="height:80px;
@@ -171,8 +253,8 @@
             		$.each(dat,function(index, stud){
             			var a = document.createElement("img");
 						a.src = stud.picture;
-						a.height = 150;
-						a.width = 150;
+						a.height = 120;
+						a.width = 120;
             			$( ".cont" ).append( "<div class=student id=" + index + "></div>");
             			$( "#" + index).append("<a href='student.html?id=" + index + "'>" + stud.name + "</a><br>");
             			$( "#" + index).append(a);
@@ -183,6 +265,7 @@
    			});
 			</script>
 			</div>
+		</div>
 		</div>
 		<div class="middle">
 			<label style="font-size:125%;font-weight:bold">Styles of Learning</label>
@@ -201,6 +284,7 @@
 				</ul>
 			</div>
 		</div>
+		
 		<br/>
 		<div class="bottom">
 			<label style="display:block;margin:auto;font-size:125%;font-weight:bold">Classroom Performance</label>
@@ -377,5 +461,5 @@
 
 	    startLoad();
     </script>
-
+</body>
 <html>
