@@ -12,7 +12,7 @@
 	  padding-right: 1vw;
 	  padding-bottom: 1vh;
 	  display: inline-block;
-	  background-color: #DEDEDE;
+	  /*background-color: #DEDEDE;*/
 	  font-size: 16px
 	}
 	#header {
@@ -24,7 +24,7 @@
 	  display: inline-block;
 /*	  border-style: solid;
 	  border-width: 1px;*/
-	  background-color: #ECECEC;
+	  /*background-color: #ECECEC;*/
 	}
 	#back {
 	  position: absolute;
@@ -37,7 +37,7 @@
 	  bottom: 3vh;
 	  position: fixed;
 	  display: show;
-	  background-color: #FFFFEC;
+	 /* background-color: #FFFFEC;*/
 	  padding-left: 1vw; 
 	  padding-right: 1vw;
 	  overflow: auto;
@@ -50,7 +50,7 @@
 	  position: fixed;
 	  font-size: 16px;
 	  display: show;
-	  background-color: #FFFFEC;
+	  /*background-color: #FFFFEC;*/
 	  padding-left: 1vw; 
 	  padding-right: 1vw;
 	  overflow: auto;
@@ -63,7 +63,7 @@
 	  position: fixed;
 	  font-size: 18px;
 	  display: show;
-	  background-color: #FFFFFF;
+	  /*background-color: #FFFFFF;*/
 	  padding-left: 1vw; 
 	  padding-right: 1vw;
 	  overflow: auto;
@@ -76,7 +76,7 @@
 	  position: fixed;
 	  font-size: 12px;
 	  display: show;
-	  background-color: #FFFFEC;
+	 /* background-color: #FFFFEC;*/
 	  padding-left: 1vw; 
 	  padding-right: 1vw;
 	  overflow: auto;
@@ -88,17 +88,32 @@
 	}
 	.navigation {
 		list-style-type: none;
-		margin: 0;
-		padding: 0;
-		font-family: 'Montserrat', sans-serif;
+			margin-right: auto;
+			margin-left: auto;
+			font-family: 'Montserrat', sans-serif;
+			display: block;
+
 	}
 	.item {
 		display: inline;
 	}
 	
-	body {
+	body{
 		font-family: 'Montserrat', sans-serif;
+		background: linear-gradient(0deg, rgba(2,70,188,0.8), rgba(2,70,188,0.6)),url("gridme.png"), url("subtle_dots.png") repeat;
+		color:#F4F4F2;
+		height: 100vh;
+		margin:0;
+		padding: 0;
 		font-size: 12px;
+		overflow: hidden;
+	}
+	a{
+			color:#F4F4F2;
+			text-decoration: none;
+	}
+	a:hover {
+		color: rgb(220,220,255);
 	}
 	</style>
 
@@ -199,7 +214,7 @@
 		document.getElementById("comments").innerHTML = commentText;
 				
 		// update header w/ student name
-		var text = name + "<br> Teacher Comments";
+		var text = name ;
 		document.getElementById("header").innerHTML = text;				
 		
 		return;

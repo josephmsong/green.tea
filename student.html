@@ -17,40 +17,69 @@
     <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 
     <style>
-    	body {
-    		font-family: 'Montserrat', sans-serif;
-    		margin: 2;
-    	}
+    	
+		body{
+			font-family: 'Montserrat', sans-serif;
+			background: linear-gradient(0deg, rgba(2,70,188,0.8), rgba(2,70,188,0.6)),url("gridme.png"), url("subtle_dots.png") repeat;
+
+			
+			color:#F4F4F2;
+			height: 100vh;
+			overflow: auto;
+			margin: 2;
+
+		}
 		.navigation {
 			list-style-type: none;
-			margin: 0;
-			padding: 0;
+			margin-right: auto;
+			margin-left: auto;
 			font-family: 'Montserrat', sans-serif;
+			display: block;
+
 		}
 		.item {
 			display: inline;
 		}
+
 		img{
 			border:1px solid #;
 			-webkit-border-radius: 20px;
 			-moz-border-radius: 20px;
 			border-radius: 20px;
 		}
+		header{
+			text-align: center;
+			display: block;
+			margin-right: auto;
+			margin-left: auto; 
+			margin-top: 20px;
+			font-size: 16px;
+		}
+		a{
+			color:#F4F4F2;
+			text-decoration: none;
+		}
+		a:hover {
+    		color: rgb(220,220,255);
+		}
     </style>
 
 </head>
+
 <body>
+	<header>
+
+		<ul class = "navigation">
+			<li class="item"> student profile</li> |
+			<li class="item"> <a id = "gradesLink" href = "grades.html">grades</a></li> |
+			<li class="item"> <a id = "commentsLink" href = "teacher.html">comments</a></li>
+		</ul>
+	</header>
 <a href = "class.html"> < Back </a>
 
 	<div class = "container">
 
-		<div style="text-align: center">
-			<ul class = "navigation">
-				<li class="item"> student profile</li> |
-				<li class="item"> <a id = "gradesLink" href = "grades.html">grades</a></li> |
-				<li class="item"> <a id = "commentsLink" href = "teacher.html">comments</a></li>
-			</ul>
-		</div>
+		
 
 		<div class = "row">
 
