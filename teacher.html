@@ -134,7 +134,9 @@
 		}
 		else if (localStorage.length > 0) {
             blob = JSON.parse(localStorage[0]);
+			comments = JSON.parse(localStorage[1]);
 			loadComments();
+			updateComments();
 			}
 		else {	
 			d3.json("data/studentData.json", function(error, data) {
@@ -241,8 +243,21 @@
 		  return
 	    obj.value = "";
 
-		blob[id]["year"][yearInd[years-1]]["comments"][infoTypes[type]] = text;
-		saveJson(blob, "data/studentData.json");
+		comments[type] = "<b>" + infoTypes[type] + ":</b> " + text + " - " + teacher + "<p>" + comments[type];
+//		blob[id]["year"][yearInd[years-1]]["comments"][infoTypes[type]] = text;
+//		saveJson(blob, "data/studentData.json");
+		//local storage
+        if (typeof(Storage) != "undefined") {
+            localStorage.clear();
+            // get all the comments for this student
+			localStorage.setItem(0, JSON.stringify(blob));
+			localStorage.setItem(1, JSON.stringify(comments));
+//			console.log("blob: ", blob[id]["year"][0][yearInd[years-1]][0]["comments"][0]);
+        }
+		else {
+            alert("Local storage is not supported by this browser.");
+        }		
+
 		updateComments();
 		
 		return;
@@ -251,18 +266,7 @@
 	// convert the array comments to JSON and save
 	// note: this is currently using local storage, not actually accessing the JSON
     function saveJson(object, filename) {
-		console.log("write the saveJson function already gosh");
-		
-		//local storage
-        if (typeof(Storage) != "undefined") {
-            localStorage.clear();
-            // get all the comments for this student
-			localStorage.setItem(0, JSON.stringify(blob));
-//			console.log("blob: ", blob[id]["year"][0][yearInd[years-1]][0]["comments"][0]);
-        }
-		else {
-            alert("Local storage is not supported by this browser.");
-        }		
+		console.log("write the saveJson function already gosh");		
     }
 	
 	</script>
