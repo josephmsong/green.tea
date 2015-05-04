@@ -241,7 +241,6 @@
 		  return
 	    obj.value = "";
 
-		comments[type] = "<b>" + infoTypes[type] + ":</b> " + text + " - " + teacher;
 		blob[id]["year"][yearInd[years-1]]["comments"][infoTypes[type]] = text;
 		saveJson(blob, "data/studentData.json");
 		updateComments();
